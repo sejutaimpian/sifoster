@@ -18,6 +18,9 @@
                     <a class="nav-link" href="/anggota">Anggota</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/pelatih">Pelatih</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/kurikulum">Kurikulum</a>
                 </li>
                 <li class="nav-item">

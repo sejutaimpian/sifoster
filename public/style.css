@@ -64,8 +64,8 @@ a:hover {
 @media (max-width: 576px) {
 }
 @media (max-width: 768px) {
-  .darurat-1{
-    margin-top: 70vh
+  .eris-80vh{
+    height: auto;
   }
 }
 
