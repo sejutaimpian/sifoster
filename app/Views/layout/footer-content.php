@@ -37,6 +37,7 @@
                     <li><a href="/pelatih">/ Pelatih</a></li>
                     <li><a href="/kurikulum">/ Kurikulum</a></li>
                     <li><a href="/informasi">/ Informasi</a></li>
+                    <li><a href="/gallery">/ Gallery</a></li>
                     <li><a href="/kompetisi">/ Kompetisi</a></li>
                     <li><a href="/prestasi">/ Prestasi</a></li>
                     <li><a href="/login">/ Login</a></li>
