@@ -44,16 +44,6 @@ a:hover {
   height: 80vh;
 }
 
-.eris-relative{
-  position: relative;
-}
-.eris-absolute{
-  position: absolute;
-}
-.eris-absolute{
-  position: static !important;
-}
-
 
 /* ------------- BREAKPOINTS ------------- */
 

@@ -11,7 +11,7 @@
             <a href="/gabung" class="btn btn-primary">Gabung</a>
         </div>
         <div class="col-md-6 my-auto py-2">
-            <img src="/image/team.jpg" alt="" class="img-fluid img-thumbnail" width="100%">
+            <img src="/image/team.jpg" alt="" class="img-fluid img-thumbnail">
         </div>
     </div>
     <div class="row">
@@ -58,6 +58,23 @@
                     </div>
                 </div>
             </a>
+        </div>
+    </div>
+    <div class="row eris-80vh my-3">
+        <div class="col-md-6 my-auto">
+            <img src="/image/field2.jpg" alt="" class="img-fluid img-thumbnail" style="">
+        </div>
+        <div class="col-md-3 my-auto">
+            <h2>Visi</h2>
+            <p>MENCETAK BIBIT UNGGUL BERKUALITAS AGAR BISA BERKIPRAH DI LEVEL NASIONAL</p>
+        </div>
+        <div class="col-md-3 my-auto">
+            <h2>Misi</h2>
+            <ul>
+                <li>1. Melakukan Pembinaan Serta Mengasah Bakat / Kemampuan diBidang Sepakbola Sejak Usia Dini Sampai Remaja.</li>
+                <li>2. Mencetak Pemain Berkualitas Dari Aspek Skill, Attitude dan Character.</li>
+                <li>3. Mengharumkan Nama kecamatan Maja Dari Mulai Tingkat Lokal sampai Nasional Bahkan International.</li>
+            </ul>
         </div>
     </div>
 </div>
