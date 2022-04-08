@@ -51,6 +51,14 @@ a:hover {
 .bg-eris-susu {
   background-color: rgba(0, 0, 0, 0.03);
 }
+.gallery-item {
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+#gallery-modal .modal-img{
+  width: 100%;
+}
 
 
 /* ------------- BREAKPOINTS ------------- */
@@ -68,5 +76,7 @@ a:hover {
 }
 
 @media (max-width: 992px) {
-  
+  .eris-80vh{
+    height: auto;
+  }
 }
