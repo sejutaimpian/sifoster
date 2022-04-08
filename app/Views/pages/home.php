@@ -78,4 +78,83 @@
         </div>
     </div>
 </div>
+<div class="container my-3">
+    <div class="row bg-eris-susu border rounded-top">
+        <div class="col-sm-12 my-1">
+            <div class="row d-flex align-items-center">
+                <div class="col-10">
+                    <i class="fa-solid fa-bullhorn fs-2"></i>
+                    <span class="h1 eris-hidden">Informasi</span>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/informasi" class="btn">
+                        <i class="fa-solid fa-arrow-right fs-2"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row border">
+        <div class="col-md-3">
+            <div class="card my-2">
+                <img src="/image/shoes.jpg" class="card-img-top img-cover" alt="foto">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+
+                    <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
+                    <small class="text-muted">Eris Sulistina</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card my-2">
+                <img src="/image/piala.jpg" class="card-img-top img-cover" alt="foto">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
+                    <small class="text-muted">Eris Sulistina</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card my-2">
+                <img src="/image/team2.jpg" class="card-img-top img-cover" alt="foto">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+
+                    <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
+                    <small class="text-muted">Eris Sulistina</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card my-2">
+                <img src="/image/shoes.jpg" class="card-img-top img-cover" alt="foto">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+
+                    <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
+                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+                <div class="card-footer">
+                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
+                    <small class="text-muted">Eris Sulistina</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->endSection(); ?>

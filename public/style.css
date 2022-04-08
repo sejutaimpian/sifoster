@@ -44,6 +44,11 @@ a:hover {
   height: 80vh;
 }
 
+.avatar {
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+}
+
 
 /* ------------- BREAKPOINTS ------------- */
 

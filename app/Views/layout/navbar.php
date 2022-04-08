@@ -24,6 +24,9 @@
                     <a class="nav-link" href="/kurikulum">Kurikulum</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/informasi">Informasi</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/kompetisi">Kompetisi</a>
                 </li>
                 <li class="nav-item">
