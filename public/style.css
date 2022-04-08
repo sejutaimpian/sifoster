@@ -10,7 +10,6 @@
 } */
 
 /* Kodingan Sendiri */
-.card-header i,
 .row i {
   margin-right: 10px;
   margin-left: 10px;
@@ -22,7 +21,7 @@ ul {
   margin: 0;
 }
 a {
-  color: var(--bs-light);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -30,8 +29,29 @@ a:hover {
   color: var(--bs-info);
 }
 
+.ps-2 li a{
+  color: var(--bs-light);
+  text-decoration: none;
+}
+.ps-2 li a:hover {
+  color: var(--bs-info) !important;
+}
 .hubungi li a:hover {
   color: var(--bs-info) !important;
+}
+
+.eris-80vh{
+  height: 80vh;
+}
+
+.eris-relative{
+  position: relative;
+}
+.eris-absolute{
+  position: absolute;
+}
+.eris-absolute{
+  position: static !important;
 }
 
 
@@ -44,7 +64,9 @@ a:hover {
 @media (max-width: 576px) {
 }
 @media (max-width: 768px) {
-  
+  .darurat-1{
+    margin-top: 70vh
+  }
 }
 
 @media (max-width: 992px) {
