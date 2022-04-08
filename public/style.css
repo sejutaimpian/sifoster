@@ -48,6 +48,9 @@ a:hover {
   width: var(--size-avatar);
   height: var(--size-avatar);
 }
+.bg-eris-susu {
+  background-color: rgba(0, 0, 0, 0.03);
+}
 
 
 /* ------------- BREAKPOINTS ------------- */

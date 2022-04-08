@@ -101,13 +101,8 @@
                 <img src="/image/shoes.jpg" class="card-img-top img-cover" alt="foto">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
                     <a href="#" class="btn btn-outline-primary">Read More</a>
-                </div>
-                <div class="card-footer">
-                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
-                    <small class="text-muted">Eris Sulistina</small>
                 </div>
             </div>
         </div>
@@ -119,10 +114,6 @@
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
                     <a href="#" class="btn btn-outline-primary">Read More</a>
                 </div>
-                <div class="card-footer">
-                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
-                    <small class="text-muted">Eris Sulistina</small>
-                </div>
             </div>
         </div>
         <div class="col-md-3">
@@ -130,13 +121,8 @@
                 <img src="/image/team2.jpg" class="card-img-top img-cover" alt="foto">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
                     <a href="#" class="btn btn-outline-primary">Read More</a>
-                </div>
-                <div class="card-footer">
-                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
-                    <small class="text-muted">Eris Sulistina</small>
                 </div>
             </div>
         </div>
@@ -145,13 +131,8 @@
                 <img src="/image/shoes.jpg" class="card-img-top img-cover" alt="foto">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
                     <a href="#" class="btn btn-outline-primary">Read More</a>
-                </div>
-                <div class="card-footer">
-                    <img src="/image/avatar.png" alt="Avatar" class="border rounded-circle avatar">
-                    <small class="text-muted">Eris Sulistina</small>
                 </div>
             </div>
         </div>
