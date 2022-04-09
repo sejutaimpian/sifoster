@@ -82,6 +82,9 @@ a:hover {
   .eris-80vh{
     height: auto;
   }
+  .eris-hidden {
+    display: none;
+  }
 }
 
 @media (max-width: 992px) {
