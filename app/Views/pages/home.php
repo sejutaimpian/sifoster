@@ -168,25 +168,25 @@
             <img src="/image/team.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/team2.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/piala3.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/field2.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/piala.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/piala2.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/sekre.jpg" class="gallery-item img-thumbnail">
         </div>
         <div class="col">
-            <img src="/image/team.jpg" class="gallery-item img-thumbnail">
+            <img src="/image/shoes.jpg" class="gallery-item img-thumbnail">
         </div>
     </div>
 </div>

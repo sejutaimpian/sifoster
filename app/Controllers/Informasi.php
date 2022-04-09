@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Kurikulum extends BaseController
+class Informasi extends BaseController
 {
     public function __construct()
     {
@@ -11,9 +11,9 @@ class Kurikulum extends BaseController
     {
         $profile = $this->profileModel->findAll();
         $data = [
-            'title' => 'Kurikulum',
+            'title' => 'Informasi',
             'profile' => $profile
         ];
-        return view('pages/kurikulum', $data);
+        return view('pages/informasi', $data);
     }
 }

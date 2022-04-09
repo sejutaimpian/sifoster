@@ -1,6 +1,7 @@
 :root {
   --lineheight: 1.5rem;
   --size-avatar: 25px;
+  scroll-behavior: smooth;
 }
 /* .form-label {
   background-color: lightblue;
