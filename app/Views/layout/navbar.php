@@ -12,9 +12,6 @@
                     <a class="nav-link" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profil">Profil</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/anggota">Anggota</a>
                 </li>
                 <li class="nav-item">

@@ -32,7 +32,6 @@
                 </div>
                 <ul class="ps-2">
                     <li><a href="/">/ Home</a></li>
-                    <li><a href="/profil">/ Profil</a></li>
                     <li><a href="/anggota">/ Anggota</a></li>
                     <li><a href="/pelatih">/ Pelatih</a></li>
                     <li><a href="/kurikulum">/ Kurikulum</a></li>

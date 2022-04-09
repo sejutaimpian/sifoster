@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="col-md-3 my-2">
-            <a href="">
+            <a href="/kurikulum">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <i class="fa-solid fa-list-check display-1"></i>
@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-md-3 my-2">
-            <a href="">
+            <a href="/kompetisi">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <i class="fa-solid fa-flag-checkered display-1"></i>
@@ -50,7 +50,7 @@
             </a>
         </div>
         <div class="col-md-3 my-2">
-            <a href="">
+            <a href="/prestasi">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
                         <i class="fa-solid fa-trophy display-1"></i>
