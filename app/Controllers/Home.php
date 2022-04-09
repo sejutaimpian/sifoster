@@ -2,22 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\ProfileModel;
+// use App\Models\ProfileModel;
 
 class Home extends BaseController
 {
-    protected $profileModel;
     public function __construct()
     {
-        $this->profileModel = new ProfileModel();
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
+        $profile = $this->profileModel->getJoin();
         $data = [
             'title' => 'Home',
             'profile' => $profile
         ];
         return view('pages/home', $data);
+    }
+    public function anggota()
+    {
+        $data = [
+            'title' => 'Daftar Anggota'
+        ];
+        return view('pages/anggota', $data);
     }
 }

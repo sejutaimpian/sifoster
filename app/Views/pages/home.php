@@ -1,6 +1,7 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
+
 <div class="container">
     <div class="row eris-80vh">
         <div class="col-md-6 my-auto">
@@ -70,9 +71,11 @@
         <div class="col-md-3 my-auto">
             <h2>Misi</h2>
             <ul>
-                <li>1. Melakukan Pembinaan Serta Mengasah Bakat / Kemampuan di Bidang Sepakbola Sejak Usia Dini Sampai Remaja.</li>
-                <li>2. Mencetak Pemain Berkualitas Dari Aspek Skill, Attitude dan Character.</li>
-                <li>3. Mengharumkan Nama kecamatan Maja Dari Mulai Tingkat Lokal sampai Nasional Bahkan International.</li>
+                <?php $i = 1 ?>
+                <?php foreach ($profile as $p) : ?>
+                    <li><?= $i; ?>. <?= $p['misi']; ?>.</li>
+                    <?php $i++ ?>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
