@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 class Anggota extends BaseController
 {
-    protected $anggota;
     public function __construct()
     {
         // $this->profileModel = new ProfileModel();
