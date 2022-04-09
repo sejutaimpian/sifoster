@@ -1,7 +1,7 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
-
+<!-- Hero -->
 <div class="container">
     <div class="row eris-80vh">
         <div class="col-md-6 my-auto">
@@ -11,9 +11,10 @@
             <a href="/gabung" class="btn btn-primary">Gabung</a>
         </div>
         <div class="col-md-6 my-auto py-2">
-            <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail">
+            <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail eris-mh">
         </div>
     </div>
+    <!-- CTA -->
     <div class="row">
         <div class="col-md-3 my-2">
             <a href="/pelatih">
@@ -60,6 +61,7 @@
             </a>
         </div>
     </div>
+    <!-- Visi & Misi -->
     <div class="row eris-80vh my-3">
         <div class="col-md-6 my-auto">
             <img src="/image/<?= $profile[0]['flapang']; ?>" alt="" class="img-fluid img-thumbnail" style="">

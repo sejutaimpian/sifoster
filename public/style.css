@@ -59,6 +59,15 @@ a:hover {
 #gallery-modal .modal-img{
   width: 100%;
 }
+.eris-mh{
+  max-height: 50vh;
+}
+.eris-mh-20{
+  max-height: 20vh;
+}
+.table > tbody > tr > *{
+  vertical-align: middle;
+}
 
 
 /* ------------- BREAKPOINTS ------------- */
