@@ -1,17 +1,16 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
-
 <div class="container">
     <div class="row eris-80vh">
         <div class="col-md-6 my-auto">
-            <h1>$Nama Organisasi</h1>
+            <h1><?= $profile[0]['nama_organisasi']; ?></h1>
             <p>Adalah sekolah sepakbola ternama di daerah Cisayong. Anggota dari penjuru daerah, pelatihan optimal, pelatih profesional, dan tentunya ramah di kantong.</p>
             <h4>Segeralah bergabung bersama kami</h4>
             <a href="/gabung" class="btn btn-primary">Gabung</a>
         </div>
         <div class="col-md-6 my-auto py-2">
-            <img src="/image/team.jpg" alt="" class="img-fluid img-thumbnail">
+            <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail">
         </div>
     </div>
     <div class="row">
@@ -62,16 +61,16 @@
     </div>
     <div class="row eris-80vh my-3">
         <div class="col-md-6 my-auto">
-            <img src="/image/field2.jpg" alt="" class="img-fluid img-thumbnail" style="">
+            <img src="/image/<?= $profile[0]['flapang']; ?>" alt="" class="img-fluid img-thumbnail" style="">
         </div>
         <div class="col-md-3 my-auto">
             <h2>Visi</h2>
-            <p>MENCETAK BIBIT UNGGUL BERKUALITAS AGAR BISA BERKIPRAH DI LEVEL NASIONAL</p>
+            <p><?= $profile[0]['visi']; ?></p>
         </div>
         <div class="col-md-3 my-auto">
             <h2>Misi</h2>
             <ul>
-                <li>1. Melakukan Pembinaan Serta Mengasah Bakat / Kemampuan diBidang Sepakbola Sejak Usia Dini Sampai Remaja.</li>
+                <li>1. Melakukan Pembinaan Serta Mengasah Bakat / Kemampuan di Bidang Sepakbola Sejak Usia Dini Sampai Remaja.</li>
                 <li>2. Mencetak Pemain Berkualitas Dari Aspek Skill, Attitude dan Character.</li>
                 <li>3. Mengharumkan Nama kecamatan Maja Dari Mulai Tingkat Lokal sampai Nasional Bahkan International.</li>
             </ul>
@@ -195,7 +194,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <img src="/image/team.jpg" class="modal-img gallery-item" alt="">
+                <img src="" class="modal-img gallery-item" alt="">
             </div>
         </div>
     </div>
