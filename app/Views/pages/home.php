@@ -124,7 +124,7 @@
         </div>
         <div class="col-md-3">
             <div class="card my-2">
-                <img src="/image/team2.jpg" class="card-img-top img-cover" alt="foto">
+                <img src="/image/skill-up.jpg" class="card-img-top img-cover" alt="foto">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
@@ -134,7 +134,7 @@
         </div>
         <div class="col-md-3">
             <div class="card my-2">
-                <img src="/image/shoes.jpg" class="card-img-top img-cover" alt="foto">
+                <img src="/image/bebas.jpg" class="card-img-top img-cover" alt="foto">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, inventore atque et sint maxime debitis esse numquam suscipit enim aliquam.</p>
