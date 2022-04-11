@@ -9,10 +9,12 @@ class Gabung extends BaseController
     }
     public function index()
     {
+        helper('eris');
         $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Pendaftaran Peserta Didik Baru',
-            'profile' => $profile
+            'profile' => $profile,
+            'validation' => \Config\Services::validation()
         ];
         return view('pages/gabung', $data);
     }
