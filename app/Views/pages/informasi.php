@@ -111,7 +111,7 @@
                 <h5>Cari Informasi</h5>
                 <form class="input-group">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Cari</button>
+                    <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
             <div class="mb-3">

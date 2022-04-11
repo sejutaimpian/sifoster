@@ -1,55 +1,76 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
-<div class="container my-2">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-9">
-            <div id="pendahuluan">
-                <h2>Pendahuluan</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
-            </div>
-            <div id="klasifikasi">
-                <h2>Klasifikasi / Kelompok Belajar</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
-            </div>
-            <div id="penilaian">
-                <h2>Penilaian Siswa</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
-            </div>
-            <div id="tatatertib">
-                <h2>Tata Tertib Siswa</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
+        <div class="col-md-2 eris-hidden">
+            <!-- Sidebar List -->
+            <div class="sticky-top d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
+                <div class="d-flex align-items-center flex-shrink-0 p-3 border-bottom">
+                    <span class="fs-5 fw-semibold">Daftar Isi</span>
+                </div>
+                <div class="list-group list-group-flush border-bottom">
+                    <a href="#" class="list-group-item list-group-item-action lh-tight">
+                        <div class="d-flex align-items-center justify-content-between">
+                            Informasi Pendaftaran
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action lh-tight">
+                        <div class="d-flex align-items-center justify-content-between">
+                            Formulir Pendaftaran
+                        </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action lh-tight">
+                        <div class="d-flex align-items-center justify-content-between">
+                            Ketentuan Tambahan
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="col-md-3 eris-hidden">
-            <div>
-                <h5>Daftar Isi</h5>
-                <ol>
-                    <a href="#pendahuluan">
-                        <li>Pendahuluan</li>
-                    </a>
-                    <a href="#klasifikasi">
-                        <li>Klasifikasi / Kelompok</li>
-                    </a>
-                    <a href="#penilaian">
-                        <li>Penilaian</li>
-                    </a>
-                    <a href="#tatatertib">
-                        <li>Tata Tertib Siswa</li>
-                    </a>
-                </ol>
-            </div>
-            <div>
-                <h5>Lorem</h5>
-            </div>
+        <div class="col-md-9">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
         </div>
     </div>
 </div>

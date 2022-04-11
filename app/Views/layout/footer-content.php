@@ -48,9 +48,9 @@
                 <div class="border-bottom">
                     <h4>Pencarian</h4>
                 </div>
-                <form class="d-flex mt-2">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                <form class="d-flex mt-2 input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>
