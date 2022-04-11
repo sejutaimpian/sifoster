@@ -41,9 +41,6 @@ a:hover {
   color: var(--bs-info) !important;
 }
 
-.eris-80vh{
-  height: 80vh;
-}
 
 .avatar {
   width: var(--size-avatar);
@@ -69,7 +66,11 @@ a:hover {
 .table > tbody > tr > *{
   vertical-align: middle;
 }
-
+.bg-grad{
+  /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(161,255,255,1) 11.3%, rgba(6,255,255,1) 41.2%, rgba(0,216,216,1) 77.8% ); */
+  background-color: #A9C9FF;
+  background-image: linear-gradient(45deg, #A9C9FF 0%, #6667ab 100%);
+  }
 
 /* ------------- BREAKPOINTS ------------- */
 
@@ -80,16 +81,12 @@ a:hover {
 @media (max-width: 576px) {
 }
 @media (max-width: 768px) {
-  .eris-80vh{
-    height: auto;
-  }
+  
   .eris-hidden {
     display: none;
   }
 }
 
 @media (max-width: 992px) {
-  .eris-80vh{
-    height: auto;
-  }
+  
 }

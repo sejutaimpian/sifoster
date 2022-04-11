@@ -3,18 +3,22 @@
 <?= $this->section("content"); ?>
 <!-- Hero -->
 <div class="container">
-    <div class="row eris-80vh">
+    <div class="row bg-grad my-3 rounded">
         <div class="col-md-6 my-auto">
-            <h1><?= $profile[0]['nama_organisasi']; ?></h1>
+            <h1 class="fw-bold"><?= $profile[0]['nama_organisasi']; ?></h1>
             <p>Adalah sekolah sepakbola ternama di daerah Cisayong. Anggota dari penjuru daerah, pelatihan optimal, pelatih profesional, dan tentunya ramah di kantong.</p>
             <h4>Segeralah bergabung bersama kami</h4>
+            <a href="#about" class="btn btn-outline-dark">Tentang Kami </a>
             <a href="/gabung" class="btn btn-primary">Gabung</a>
         </div>
         <div class="col-md-6 my-auto py-2">
-            <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail eris-mh">
+            <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail">
         </div>
     </div>
-    <!-- CTA -->
+</div>
+
+<!-- CTA -->
+<div class="container" id="about">
     <div class="row">
         <div class="col-md-3 my-2">
             <a href="/pelatih">
@@ -61,8 +65,9 @@
             </a>
         </div>
     </div>
+
     <!-- Visi & Misi -->
-    <div class="row eris-80vh my-3">
+    <div class="row my-3">
         <div class="col-md-6 my-auto">
             <img src="/image/<?= $profile[0]['flapang']; ?>" alt="" class="img-fluid img-thumbnail" style="">
         </div>
@@ -82,7 +87,6 @@
         </div>
     </div>
 </div>
-
 <!-- Informasi -->
 <div class="container my-3">
     <div class="row bg-eris-susu border rounded-top">

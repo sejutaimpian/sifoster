@@ -67,7 +67,7 @@
         <div class="col-md-4">
             <div class="mb-3">
                 <h5>Cari Informasi</h5>
-                <form class="input-group">
+                <form class="input-group" action="">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Cari</button>
                 </form>
