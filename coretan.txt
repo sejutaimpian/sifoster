@@ -1,0 +1,12 @@
+// Ambil File fotoformal
+        $fotoUpload1 = $this->request->getFile('fotoformal');
+        $namaFotoUpload1 = $fotoUpload1->getRandomName();
+        $fotoUpload1->move('image', $namaFotoUpload1);
+        // Ambil File akte
+        $fotoUpload2 = $this->request->getFile('akte');
+        $namaFotoUpload2 = $fotoUpload2->getRandomName();
+        $fotoUpload2->move('image', $namaFotoUpload2);
+        // Ambil File kartukeluarga
+        $fotoUpload3 = $this->request->getFile('kartukeluarga');
+        $namaFotoUpload3 = $fotoUpload3->getRandomName();
+        $fotoUpload3->move('image', $namaFotoUpload3);

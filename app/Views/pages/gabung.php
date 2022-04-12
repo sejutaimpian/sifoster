@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-8">
             <?php if (session()->getFlashData('pesan')) : ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
                     <?= session()->getFlashdata('pesan'); ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -257,7 +257,7 @@
                                 <label for="fotoformal" class="col-sm-2 col-form-label">Foto Formal</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('fotoformal')) ? 'is-invalid' : ''; ?>" type="file" id="fotoformal" name="fotoformal" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('fotoformal')) ? 'is-invalid' : ''; ?>" type="file" id="fotoformal" name="fotoformal">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('fotoformal'); ?>
                                         </div>
@@ -268,7 +268,7 @@
                                 <label for="akte" class="col-sm-2 col-form-label">Akte</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('akte')) ? 'is-invalid' : ''; ?>" type="file" id="akte" name="akte" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('akte')) ? 'is-invalid' : ''; ?>" type="file" id="akte" name="akte">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('akte'); ?>
                                         </div>
@@ -279,7 +279,7 @@
                                 <label for="kartukeluarga" class="col-sm-2 col-form-label">Kartu Keluarga</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('kartukeluarga')) ? 'is-invalid' : ''; ?>" type="file" id="kartukeluarga" name="kartukeluarga" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('kartukeluarga')) ? 'is-invalid' : ''; ?>" type="file" id="kartukeluarga" name="kartukeluarga">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('kartukeluarga'); ?>
                                         </div>
@@ -290,7 +290,7 @@
                                 <label for="kia" class="col-sm-2 col-form-label">Kartu Identitas Anak</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('kia')) ? 'is-invalid' : ''; ?>" type="file" id="kia" name="kia" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('kia')) ? 'is-invalid' : ''; ?>" type="file" id="kia" name="kia">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('kia'); ?>
                                         </div>
@@ -301,7 +301,7 @@
                                 <label for="nisn" class="col-sm-2 col-form-label">Nomor Induk Siswa Nasional</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('nisn')) ? 'is-invalid' : ''; ?>" type="file" id="nisn" name="nisn" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('nisn')) ? 'is-invalid' : ''; ?>" type="file" id="nisn" name="nisn">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('nisn'); ?>
                                         </div>
@@ -312,7 +312,7 @@
                                 <label for="raport" class="col-sm-2 col-form-label">Raport</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('raport')) ? 'is-invalid' : ''; ?>" type="file" id="raport" name="raport" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('raport')) ? 'is-invalid' : ''; ?>" type="file" id="raport" name="raport">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('raport'); ?>
                                         </div>

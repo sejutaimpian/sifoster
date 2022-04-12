@@ -49,5 +49,6 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->profileModel = new \App\Models\ProfileModel();
+        session();
     }
 }
