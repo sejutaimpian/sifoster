@@ -9,6 +9,6 @@ class GabungModel extends Model
     protected $table = 'gabung';
     protected $useTimestamps = true;
     protected $allowedFields = [
-        'namasiswa', 'tempatlahir', 'tanggallahir', 'jeniskelamin', 'alamatrumah', 'nowhatsapp', 'nowali', 'tinggi', 'berat', 'goldar', 'sekolah', 'kelas', 'alamatsekolah', 'email', 'password', 'fotoformal', 'akte', 'kartukeluarga', 'kia', 'nisn', 'raport'
+        'namasiswa', 'tempatlahir', 'tanggallahir', 'jeniskelamin', 'alamatrumah', 'nowhatsapp', 'nowali', 'tinggi', 'berat', 'goldar', 'sekolah', 'kelas', 'alamatsekolah', 'email', 'password', 'klasifikasi', 'fotoformal', 'akte', 'kartukeluarga', 'kia', 'nisn', 'raport'
     ];
 }

@@ -252,6 +252,46 @@
                                     </div>
                                 </div>
                             </div>
+                            <h2>Pendaftaran SSB</h2>
+                            <div class="row mb-3">
+                                <label for="klasifikasi" class="col-sm-2 col-form-label">Klasifikasi</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select <?= ($validation->hasError('klasifikasi')) ? 'is-invalid' : ''; ?>" id="klasifikasi" name="klasifikasi">
+                                        <?php if (old('klasifikasi')) : ?>
+                                            <?php if (old('klasifikasi') == 'Dasar 1') : ?>
+                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
+                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
+                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
+                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                            <?php elseif (old('klasifikasi') == 'Dasar 2') : ?>
+                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
+                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
+                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
+                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                            <?php elseif (old('klasifikasi') == 'Menengah 1') : ?>
+                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
+                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
+                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
+                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                            <?php else : ?>
+                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
+                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
+                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
+                                            <?php endif ?>
+                                        <?php else : ?>
+                                            <option value="">Pilih....</option>
+                                            <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
+                                            <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
+                                            <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
+                                            <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                        <?php endif ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('klasifikasi'); ?>
+                                    </div>
+                                </div>
+                            </div>
                             <h2>Persyaratan Berkas-berkas</h2>
                             <div class="row mb-3">
                                 <label for="fotoformal" class="col-sm-2 col-form-label">Foto Formal</label>

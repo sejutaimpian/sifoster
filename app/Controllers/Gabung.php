@@ -122,7 +122,12 @@ class Gabung extends BaseController
                     'matches' => 'Password Konfirmasi tidak sesuai'
                 ]
             ],
-
+            'klasifikasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
             'fotoformal' => [
                 'rules' => 'uploaded[fotoformal]|max_size[fotoformal,2048]|is_image[fotoformal]|mime_in[fotoformal,image/jpg,image/jpeg,image/png]',
                 'errors' => [
@@ -223,6 +228,7 @@ class Gabung extends BaseController
             'alamatsekolah' => $this->request->getPost('alamatsekolah'),
             'email' => $this->request->getPost('email'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'klasifikasi' => $this->request->getPost('klasifikasi'),
             'fotoformal' => $namaFotoUpload1,
             'akte' => $namaFotoUpload2,
             'kartukeluarga' => $namaFotoUpload3,
