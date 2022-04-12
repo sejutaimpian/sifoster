@@ -124,18 +124,18 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="narahubung" class="col-sm-2 col-form-label">No Whatsapp</label>
+                                <label for="nowhatsapp" class="col-sm-2 col-form-label">No Whatsapp</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control <?= ($validation->hasError('narahubung')) ? 'is-invalid' : ''; ?>" id="narahubung" name="narahubung" value="<?= old('narahubung'); ?>">
+                                    <input type="number" class="form-control <?= ($validation->hasError('nowhatsapp')) ? 'is-invalid' : ''; ?>" id="nowhatsapp" name="nowhatsapp" value="<?= old('nowhatsapp'); ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('narahubung'); ?>
+                                        <?= $validation->getError('nowhatsapp'); ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="nowali" class="col-sm-2 col-form-label">No Orangtua / Wali</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control <?= ($validation->hasError('nowali')) ? 'is-invalid' : ''; ?>" id="nowali" name="nowali" value="<?= old('nowali'); ?>">
+                                    <input type="number" class="form-control <?= ($validation->hasError('nowali')) ? 'is-invalid' : ''; ?>" id="nowali" name="nowali" value="<?= old('nowali'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('nowali'); ?>
                                     </div>
@@ -205,7 +205,7 @@
                                 </div>
                                 <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control <?= ($validation->hasError('kelas')) ? 'is-invalid' : ''; ?>" id="kelas" name="kelas" value="<?= old('kelas'); ?>">
+                                    <input type="number" class="form-control <?= ($validation->hasError('kelas')) ? 'is-invalid' : ''; ?>" id="kelas" name="kelas" value="<?= old('kelas'); ?>">
                                     <div class="invalid-feedback">
                                         <?= $validation->getError('kelas'); ?>
                                     </div>
@@ -220,14 +220,40 @@
                                     </div>
                                 </div>
                             </div>
+                            <h2>Pendaftaran Akun</h2>
+                            <div class="row mb-3">
+                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" id="email" name="email" value="<?= old('email'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('email'); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= old('password'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('password'); ?>
+                                    </div>
+                                </div>
+                                <label for="konfirmasipassword" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" class="form-control <?= ($validation->hasError('konfirmasipassword')) ? 'is-invalid' : ''; ?>" id="konfirmasipassword" name="konfirmasipassword" value="<?= old('konfirmasipassword'); ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('konfirmasipassword'); ?>
+                                    </div>
+                                </div>
+                            </div>
                             <h2>Persyaratan Berkas-berkas</h2>
                             <div class="row mb-3">
-                                <label for="foto" class="col-sm-2 col-form-label">Foto</label>
+                                <label for="fotoformal" class="col-sm-2 col-form-label">Foto Formal</label>
                                 <div class="col-sm-10">
                                     <div class="">
-                                        <input class="form-control <?= ($validation->hasError('foto')) ? 'is-invalid' : ''; ?>" type="file" id="foto" name="foto" onchange="previewImg()">
+                                        <input class="form-control <?= ($validation->hasError('fotoformal')) ? 'is-invalid' : ''; ?>" type="file" id="fotoformal" name="fotoformal" onchange="previewImg()">
                                         <div class="invalid-feedback">
-                                            <?= $validation->getError('foto'); ?>
+                                            <?= $validation->getError('fotoformal'); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -283,17 +309,6 @@
                                         <input class="form-control <?= ($validation->hasError('raport')) ? 'is-invalid' : ''; ?>" type="file" id="raport" name="raport" onchange="previewImg()">
                                         <div class="invalid-feedback">
                                             <?= $validation->getError('raport'); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label for="fotoformal" class="col-sm-2 col-form-label">Foto Formal</label>
-                                <div class="col-sm-10">
-                                    <div class="">
-                                        <input class="form-control <?= ($validation->hasError('fotoformal')) ? 'is-invalid' : ''; ?>" type="file" id="fotoformal" name="fotoformal" onchange="previewImg()">
-                                        <div class="invalid-feedback">
-                                            <?= $validation->getError('fotoformal'); ?>
                                         </div>
                                     </div>
                                 </div>
