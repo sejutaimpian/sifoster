@@ -7,5 +7,7 @@ use CodeIgniter\Model;
 class GabungModel extends Model
 {
     protected $table = 'gabung';
-    protected $allowedFields = ['pelatih', 'nama_pelatih', 'nomor_pelatih', 'sertifikasi', 'pengalaman', 'tahun kerja', 'foto'];
+    protected $allowedFields = [
+        'namasiswa', 'tempatlahir', 'tanggallahir', 'jeniskelamin', 'alamatrumah', 'nowhatsapp', 'nowali', 'tinggi', 'berat', 'goldar', 'sekolah', 'kelas', 'alamatsekolah', 'email', 'password', 'fotoformal', 'akte', 'kartukeluarga', 'kia', 'nisn', 'raport'
+    ];
 }

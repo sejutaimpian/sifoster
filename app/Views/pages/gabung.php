@@ -29,6 +29,12 @@
             </div>
         </div>
         <div class="col-md-8">
+            <?php if (session()->getFlashData('pesan')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div id="informasi">
                 <h1>Informasi Pendaftaran</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto!</p>
@@ -58,14 +64,14 @@
                     </div>
                     <div class="row border py-2">
                         <h2>Data Diri</h2>
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="/gabung/save" method="POST" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <div class="row mb-3">
-                                <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                                <label for="namasiswa" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : ''; ?>" id="nama" name="nama" value="<?= old('nama'); ?>">
+                                    <input type="text" class="form-control <?= ($validation->hasError('namasiswa')) ? 'is-invalid' : ''; ?>" id="namasiswa" name="namasiswa" value="<?= old('namasiswa'); ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('nama'); ?>
+                                        <?= $validation->getError('namasiswa'); ?>
                                     </div>
                                 </div>
                             </div>
