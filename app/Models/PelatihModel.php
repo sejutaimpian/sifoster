@@ -7,5 +7,6 @@ use CodeIgniter\Model;
 class PelatihModel extends Model
 {
     protected $table = 'pelatih';
-    protected $allowedFields = ['pelatih', 'nama_pelatih', 'nomor_pelatih', 'sertifikasi', 'pengalaman', 'tahun kerja', 'foto'];
+    protected $useTimestamps = true;
+    protected $allowedFields = ['pelatih', 'nama_pelatih', 'nomor_pelatih', 'sertifikasi', 'pengalaman', 'tahun_kerja', 'foto'];
 }

@@ -1,8 +1,3 @@
-<div class="container-fluid">
-    <div class="row bg-dark p-2">
-        <div class="col-md-12 text-center text-light">Build with <i class="fa-solid fa-heart"></i> by <a href="https://instagram.com/deris_sulistina" target="_blank">Eris Sulistina</a></div>
-    </div>
-</div>
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

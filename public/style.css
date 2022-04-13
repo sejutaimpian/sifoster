@@ -58,6 +58,20 @@
 }
 .lh-tight { line-height: 1.25; }
 
+/* Login & Dashboard */
+#layoutAuthentication {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#layoutAuthentication #layoutAuthentication_content {
+  min-width: 0;
+  flex-grow: 1;
+}
+#layoutAuthentication #layoutAuthentication_footer {
+  min-width: 0;
+}
+
 /* Kodingan Sendiri */
 .row i {
   margin-right: 10px;
