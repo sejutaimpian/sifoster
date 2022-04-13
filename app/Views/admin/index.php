@@ -19,8 +19,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#">Edit Akun</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -35,63 +34,72 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="">
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link" href="/admin">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></i></div>
                                 Dashboard
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrang" aria-expanded="false" aria-controls="collapseOrang">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
+                                Orang
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseOrang" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
+                                    <a class="nav-link" href="/admin/anggota">Anggota</a>
+                                    <a class="nav-link" href="/admin/pelatih">Pelatih</a>
                                 </nav>
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                            <a class="nav-link" href="/admin/kurikulum">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></div>
+                                Kurikulum
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                        </div>
+                        <div class="">
+                            <a class="nav-link" href="/admin/presensi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-point-up"></i></i></div>
+                                Presensi
+                            </a>
+                        </div>
+                        <div class="">
+                            <a class="nav-link" href="/admin/kompetisi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-flag-checkered"></i></div>
+                                Kompetisi
+                            </a>
+                        </div>
+                        <div class="">
+                            <a class="nav-link" href="/admin/prestasi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-trophy"></i></div>
+                                Prestasi
+                            </a>
+                        </div>
+                        <div class="">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseKeuangan" aria-expanded="false" aria-controls="collapseKeuangan">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-wallet"></i></div>
+                                Keuangan
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseKeuangan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/admin/pemasukan">Pemasukan</a>
+                                    <a class="nav-link" href="/admin/pengeluaran">Pengeluaran</a>
+                                    <a class="nav-link" href="/admin/laporankeuangan">Laporan</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="">
+                            <a class="nav-link" href="/admin/profileorganisasi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
+                                Profil Organisasi
+                            </a>
+                        </div>
+                        <div class="">
+                            <a class="nav-link" href="/admin/manajemenakun">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer-mouse"></i></div>
+                                Manajemen Akun
                             </a>
                         </div>
                     </div>
@@ -102,11 +110,14 @@
                 </div>
             </nav>
         </div>
+
+        <!-- Konten Utama -->
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="#"><?= ucfirst($uri->getSegment(1)) ?></a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                     <div class="row">
@@ -147,6 +158,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Datatbles -->
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>

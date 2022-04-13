@@ -1,4 +1,4 @@
-// Active Nav
+// Active Nav Beranda
 const activePage = location.href;
 const navLink = document.querySelectorAll('nav ul li a');
 const navLinkLength = navLink.length;
@@ -43,3 +43,13 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesSimple);
     }
 });
+
+// Active Nav Login
+const activePageLogin = location.href;
+const navLinkLogin = document.querySelectorAll('#layoutSidenav .nav a');
+const navLinkLengthLogin = navLinkLogin.length;
+for(let i = 0; i<navLinkLengthLogin; i++){
+    if(navLinkLogin[i].href === activePageLogin){
+        navLinkLogin[i].classList.add("active");
+    }
+}

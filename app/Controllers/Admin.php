@@ -6,6 +6,7 @@ class Admin extends BaseController
 {
     public function __construct()
     {
+        $this->uri = service('uri');
     }
     public function index()
     {
@@ -16,7 +17,8 @@ class Admin extends BaseController
         $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Admin',
-            'profile' => $profile
+            'profile' => $profile,
+            'uri' => $this->uri
         ];
         return view('admin/index', $data);
     }
