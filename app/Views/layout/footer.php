@@ -11,7 +11,10 @@
 <!-- Ckeditor -->
 <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
 
-<script src="/script.js"></script>
+<script src="/js/script.js"></script>
+<script src="/js/sbadmin.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 </body>
 
 </html>
