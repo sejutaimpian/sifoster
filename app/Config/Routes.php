@@ -34,7 +34,10 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('gabung/save', 'Gabung::index');
 $routes->get('user', 'User::index', ['filter' => 'auth']);
+$routes->get('admin', 'Admin::index', ['filter' => 'auth']);
 $routes->get('logout', 'Login::logout');
+$routes->get('login', 'Login::index', ['filter' => 'noauth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

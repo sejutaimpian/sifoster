@@ -9,6 +9,10 @@ class User extends BaseController
     }
     public function index()
     {
+        if (session()->get('isLoggedIn') == 'admin') {
+            return redirect()->to('/admin');
+        }
+
         $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'User',

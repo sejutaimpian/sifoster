@@ -57,7 +57,7 @@ class Login extends BaseController
                         if (password_verify($password, $user['password'])) {
                             // Cek role
                             if ($user['role'] == 'admin') {
-                                $this->setUserSession($user);
+                                $this->setAdminSession($user);
                                 return redirect()->to('/admin');
                             } else {
                                 $this->setUserSession($user);
@@ -78,12 +78,23 @@ class Login extends BaseController
             }
         }
     }
+    private function setAdminSession($user)
+    {
+        $data = [
+            'email' => $user['email'],
+            'role' => $user['role'],
+            'isLoggedIn' => 'admin',
+        ];
+
+        session()->set($data);
+        return true;
+    }
     private function setUserSession($user)
     {
         $data = [
             'email' => $user['email'],
             'role' => $user['role'],
-            'isLoggedIn' => true,
+            'isLoggedIn' => 'user',
         ];
 
         session()->set($data);
