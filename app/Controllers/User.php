@@ -2,10 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class User extends BaseController
 {
     public function __construct()
     {
+        $model = new UserModel();
+        $this->user = $model->where('email', session()->get('email'))
+            ->first();
         $this->uri = service('uri');
     }
     public function index()
@@ -16,7 +21,8 @@ class User extends BaseController
         $data = [
             'title' => 'User',
             'profile' => $this->profile,
-            'uri' => $this->uri
+            'uri' => $this->uri,
+            'akun' => $this->user
         ];
         return view('user/index', $data);
     }

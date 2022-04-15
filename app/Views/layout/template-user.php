@@ -15,9 +15,11 @@
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/image/<?= $akun['fotoformal']; ?>" class="fotoformal rounded-3 border border-primary" alt="foto formal">
+                </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Edit Akun</a></li>
+                    <li><a class="dropdown-item" href="#">Manajemen Akun</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -104,7 +106,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    <?= ucfirst(session()->get('namasiswa')); ?>
+                    <?= $akun['namasiswa']; ?>
                 </div>
             </nav>
         </div>
