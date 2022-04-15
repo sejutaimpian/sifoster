@@ -12,8 +12,8 @@
     <!-- Datatables -->
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <!-- My CSS -->
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sbadmin.css">
+    <link rel="stylesheet" href="/css/style.css">
 
     <title><?= $title; ?></title>
     <link rel="icon" href="/image/<?= $profile[0]['flogo']; ?>">

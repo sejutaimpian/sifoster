@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-3 eris-hidden">
-            <div>
+            <div class="sticky-top">
                 <h5>Daftar Isi</h5>
                 <ol>
                     <a href="#pendahuluan">
@@ -46,9 +46,6 @@
                         <li>Tata Tertib Siswa</li>
                     </a>
                 </ol>
-            </div>
-            <div>
-                <h5>Lorem</h5>
             </div>
         </div>
     </div>
