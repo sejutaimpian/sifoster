@@ -10,10 +10,9 @@ class Anggota extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Daftar Anggota',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/anggota', $data);
     }

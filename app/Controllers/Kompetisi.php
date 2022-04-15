@@ -9,10 +9,9 @@ class Kompetisi extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Kompetisi',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/kompetisi', $data);
     }

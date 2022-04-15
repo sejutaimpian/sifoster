@@ -9,10 +9,9 @@ class Kurikulum extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Kurikulum',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/kurikulum', $data);
     }

@@ -9,10 +9,9 @@ class Gabung extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Pendaftaran Peserta Didik Baru',
-            'profile' => $profile,
+            'profile' => $this->profile,
             'validation' => \Config\Services::validation()
         ];
         return view('pages/gabung', $data);

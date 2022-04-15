@@ -9,10 +9,9 @@ class Gallery extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Gallery',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/gallery', $data);
     }

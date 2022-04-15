@@ -18,11 +18,4 @@ class Home extends BaseController
         ];
         return view('pages/home', $data);
     }
-    public function anggota()
-    {
-        $data = [
-            'title' => 'Daftar Anggota'
-        ];
-        return view('pages/anggota', $data);
-    }
 }

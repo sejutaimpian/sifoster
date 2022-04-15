@@ -9,10 +9,9 @@ class Prestasi extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Prestasi',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/prestasi', $data);
     }

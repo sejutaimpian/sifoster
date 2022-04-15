@@ -9,10 +9,9 @@ class Informasi extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Informasi',
-            'profile' => $profile
+            'profile' => $this->profile
         ];
         return view('pages/informasi', $data);
     }

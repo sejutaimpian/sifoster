@@ -13,11 +13,9 @@ class Admin extends BaseController
         if (session()->get('isLoggedIn') == 'user') {
             return redirect()->to('/user');
         }
-
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Admin',
-            'profile' => $profile,
+            'profile' => $this->profile,
             'uri' => $this->uri
         ];
         return view('admin/index', $data);

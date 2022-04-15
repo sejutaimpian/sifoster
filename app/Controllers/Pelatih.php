@@ -10,11 +10,10 @@ class Pelatih extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $pelatih = $this->pelatihModel->findAll();
         $data = [
             'title' => 'Daftar Pelatih',
-            'profile' => $profile,
+            'profile' => $this->profile,
             'pelatih' => $pelatih
         ];
         return view('pages/pelatih', $data);

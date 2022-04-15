@@ -32,9 +32,9 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="">
-                            <a class="nav-link" href="/admin">
+                            <a class="nav-link" href="/user">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
-                                Dashboard
+                                Data Diri
                             </a>
                         </div>
                         <div class="">
@@ -45,31 +45,31 @@
                             </a>
                             <div class="collapse" id="collapseOrang" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/anggota">Anggota</a>
-                                    <a class="nav-link" href="/admin/pelatih">Pelatih</a>
+                                    <a class="nav-link" href="/user/anggota">Anggota</a>
+                                    <a class="nav-link" href="/user/pelatih">Pelatih</a>
                                 </nav>
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/kurikulum">
+                            <a class="nav-link" href="/user/kurikulum">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-list-check"></i></div>
                                 Kurikulum
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/presensi">
+                            <a class="nav-link" href="/user/presensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-point-up"></i></div>
                                 Absensi
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/kompetisi">
+                            <a class="nav-link" href="/user/kompetisi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-flag-checkered"></i></div>
                                 Kompetisi
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/prestasi">
+                            <a class="nav-link" href="/user/prestasi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-trophy"></i></div>
                                 Prestasi
                             </a>
@@ -82,20 +82,20 @@
                             </a>
                             <div class="collapse" id="collapseKeuangan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/pemasukan">Pemasukan</a>
-                                    <a class="nav-link" href="/admin/pengeluaran">Pengeluaran</a>
-                                    <a class="nav-link" href="/admin/laporankeuangan">Laporan</a>
+                                    <a class="nav-link" href="/user/pemasukan">Pemasukan</a>
+                                    <a class="nav-link" href="/user/pengeluaran">Pengeluaran</a>
+                                    <a class="nav-link" href="/user/laporankeuangan">Laporan</a>
                                 </nav>
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/profileorganisasi">
+                            <a class="nav-link" href="/user/profileorganisasi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
                                 Profil Organisasi
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/manajemenakun">
+                            <a class="nav-link" href="/user/manajemenakun">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-computer-mouse"></i></div>
                                 Manajemen Akun
                             </a>

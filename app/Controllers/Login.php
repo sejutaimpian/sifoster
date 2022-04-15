@@ -11,10 +11,9 @@ class Login extends BaseController
     }
     public function index()
     {
-        $profile = $this->profileModel->findAll();
         $data = [
             'title' => 'Login',
-            'profile' => $profile,
+            'profile' => $this->profile,
             'validation' => \Config\Services::validation()
         ];
 
@@ -81,6 +80,7 @@ class Login extends BaseController
     private function setAdminSession($user)
     {
         $data = [
+            'namasiswa' => $user['namasiswa'],
             'email' => $user['email'],
             'role' => $user['role'],
             'isLoggedIn' => 'admin',
@@ -92,6 +92,7 @@ class Login extends BaseController
     private function setUserSession($user)
     {
         $data = [
+            'namasiswa' => $user['namasiswa'],
             'email' => $user['email'],
             'role' => $user['role'],
             'isLoggedIn' => 'user',

@@ -1,6 +1,5 @@
-<?= $this->extend("layout/template-blank"); ?>
+<?= $this->extend("layout/template-user"); ?>
 
 <?= $this->section("content"); ?>
-<h1><?= $title; ?></h1>
-<a href="logout" class="btn btn-secondary">logout</a>
+<h1>Blank</h1>
 <?= $this->endSection(); ?>
