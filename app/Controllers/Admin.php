@@ -20,4 +20,16 @@ class Admin extends BaseController
         ];
         return view('admin/index', $data);
     }
+    public function anggota()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $data = [
+            'title' => 'Data Anggota',
+            'profile' => $this->profile,
+            'uri' => $this->uri
+        ];
+        return view('admin/anggota', $data);
+    }
 }

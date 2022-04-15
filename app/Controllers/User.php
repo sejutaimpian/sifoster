@@ -26,4 +26,16 @@ class User extends BaseController
         ];
         return view('user/index', $data);
     }
+    public function anggota()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+        $data = [
+            'title' => 'Data Anggota',
+            'profile' => $this->profile,
+            'uri' => $this->uri
+        ];
+        return view('user/anggota', $data);
+    }
 }

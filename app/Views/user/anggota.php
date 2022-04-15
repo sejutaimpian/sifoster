@@ -12,6 +12,7 @@ $segmentsLength = count($uri->getSegments());
             <?php for ($i = 1; $i < $segmentsLength; $i++) : ?>
                 <li class="breadcrumb-item"><a href="#"><?= ucfirst($uri->getSegment($i)) ?></a></li>
             <?php endfor ?>
+            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment($segmentsLength)); ?></li>
         <?php else : ?>
             <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment(1)); ?></li>
         <?php endif ?>

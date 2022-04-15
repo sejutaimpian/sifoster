@@ -33,8 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('gabung/save', 'Gabung::index');
-$routes->get('user/(:any)', 'User::index', ['filter' => 'auth']);
-$routes->get('admin/(:any)', 'Admin::index', ['filter' => 'auth']);
+$routes->get('user', 'User::index', ['filter' => 'auth']);
+$routes->get('admin', 'Admin::index', ['filter' => 'auth']);
 $routes->get('logout', 'Login::logout');
 $routes->get('login', 'Login::index', ['filter' => 'noauth']);
 

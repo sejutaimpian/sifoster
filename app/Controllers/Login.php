@@ -77,7 +77,7 @@ class Login extends BaseController
             }
         }
     }
-    private function setAdminSession($user)
+    public function setAdminSession($user)
     {
         $data = [
             'namasiswa' => $user['namasiswa'],
@@ -89,7 +89,7 @@ class Login extends BaseController
         session()->set($data);
         return true;
     }
-    private function setUserSession($user)
+    public function setUserSession($user)
     {
         $data = [
             'namasiswa' => $user['namasiswa'],
