@@ -3,33 +3,21 @@
 <?= $this->section("content"); ?>
 <div class="container">
     <div class="row">
-        <h1><?= $title; ?></h1>
         <div class="col-md-8 mb-3">
+            <h1><?= $title; ?></h1>
             <div class="list-group">
-                <div class="list-group-item ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Juara 1 tingkat kecamatan</h5>
-                        <small class="text-muted">1 Mei 2000</small>
+                <?php foreach ($prestasi as $p) : ?>
+                    <div class="list-group-item ">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1 fw-bold"><?= $p['juara']; ?></h5>
+                            <small class="text-muted"><?= $p['waktu']; ?></small>
+                        </div>
+                        <h5 class="mb-1"><?= $p['ajang']; ?></h5>
                     </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </div>
-                <div class="list-group-item ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Juara 3 tingkat Kabupaten</h5>
-                        <small class="text-muted">27 Februari 1999</small>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </div>
-                <div class="list-group-item ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Juara Harapan</h5>
-                        <small class="text-muted">30 Maret 2002</small>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
             <div class="mb-3">
                 <h5>Cari Informasi</h5>
                 <form class="input-group">
@@ -40,12 +28,9 @@
             <div class="mb-3">
                 <h5>Kategori Informasi</h5>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Pendidikan</a>
-                    <a href="#" class="list-group-item list-group-item-action">Keorganisasian</a>
-                    <a href="#" class="list-group-item list-group-item-action">Kompetisi</a>
-                    <a href="#" class="list-group-item list-group-item-action">Prestasi</a>
-                    <a href="#" class="list-group-item list-group-item-action">Tulisan Anggota</a>
-                    <a href="#" class="list-group-item list-group-item-action">Hiburan</a>
+                    <?php foreach ($kategori as $k) : ?>
+                        <a href="/informasi/kategori/<?= $k['id']; ?>" class="list-group-item list-group-item-action"><?= $k['namakategori']; ?></a>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="mb-3">
