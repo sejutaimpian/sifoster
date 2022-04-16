@@ -139,7 +139,11 @@ a:hover {
   width: auto;
   height: 40px;
 }
-
+.description{
+  line-height: var(--lineheight);
+  max-height: calc(var(--lineheight) * 3);
+  overflow: hidden;
+}
 
 
 /* ------------- BREAKPOINTS ------------- */

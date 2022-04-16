@@ -38,12 +38,9 @@
             <div class="mb-3">
                 <h5>Kategori Informasi</h5>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">Pendidikan</a>
-                    <a href="#" class="list-group-item list-group-item-action">Keorganisasian</a>
-                    <a href="#" class="list-group-item list-group-item-action">Kompetisi</a>
-                    <a href="#" class="list-group-item list-group-item-action">Prestasi</a>
-                    <a href="#" class="list-group-item list-group-item-action">Tulisan Anggota</a>
-                    <a href="#" class="list-group-item list-group-item-action">Hiburan</a>
+                    <?php foreach ($kategori as $k) : ?>
+                        <a href="/informasi/<?= $k['id']; ?>" class="list-group-item list-group-item-action"><?= $k['namakategori']; ?></a>
+                    <?php endforeach ?>
                 </div>
             </div>
             <div class="mb-3">
