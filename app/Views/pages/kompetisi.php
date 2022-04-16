@@ -6,64 +6,27 @@
         <h1><?= $title; ?></h1>
         <div class="col-md-8 mb-3">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-primary rounded-pill mt-2">Akan Datang</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">List group item heading</h5>
-                        <span class="badge bg-secondary rounded-pill mt-2">Telah lalu</span>
-                    </div>
-                    <p class="mb-1">Some placeholder content in a paragraph.</p>
-                </a>
+                <?php foreach ($kompetisi as $k) : ?>
+                    <?php
+                    // bg-primary or bg-secondary
+                    if (strtotime($k['waktukompetisi']) <= time()) {
+                        $bg = 'bg-secondary';
+                    } else {
+                        $bg = 'bg-primary';
+                    }
+                    ?>
+                    <a href="<?= $k['link']; ?>" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h3 class="mb-1"><?= $k['namakompetisi']; ?></h3>
+                            <span class="badge <?= $bg; ?> rounded-pill my-auto"><?= $k['waktukompetisi']; ?></span>
+                        </div>
+                        <h6 class="mb-1"><i class="fa-solid fa-location-dot"></i><?= $k['tempat']; ?></h6>
+                        <p class="mb-1"><?= $k['keterangan']; ?></p>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="mb-3">
                 <h5>Cari Informasi</h5>

@@ -45,9 +45,8 @@ class Login extends BaseController
             ])) {
                 return redirect()->to('/login')->withInput();
             } else {
-                $model = new UserModel();
-                $user = $model->where('email', $email)
-                    ->first();
+                $usermodel = new UserModel();
+                $user = $usermodel->where('email', $email)->first();
                 // Jika akun terdaftar
                 if ($user) {
                     // Jika akun aktif
