@@ -21,7 +21,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    <li><a class="dropdown-item" href="/logout" onclick="return confirm('Yakin untuk logout?');">Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/logout">
+                            <a class="nav-link" href="/logout" onclick="return confirm('Yakin untuk logout?');">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                                 Logout
                             </a>

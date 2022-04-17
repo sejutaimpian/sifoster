@@ -9,8 +9,9 @@ $segmentsLength = count($uri->getSegments());
     <ol class="breadcrumb mb-4">
         <?php if ($segmentsLength != 1) : ?>
             <?php for ($i = 1; $i < $segmentsLength; $i++) : ?>
-                <li class="breadcrumb-item"><a href="#"><?= ucfirst($uri->getSegment($i)) ?></a></li>
+                <li class="breadcrumb-item"><a href="/<?= $uri->getSegment($i); ?>"><?= ucfirst($uri->getSegment($i)) ?></a></li>
             <?php endfor ?>
+            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment($i)) ?></li>
         <?php else : ?>
             <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment(1)); ?></li>
         <?php endif ?>
@@ -36,7 +37,7 @@ $segmentsLength = count($uri->getSegments());
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-white mb-4">
-                <div class="card-body h1">54</div>
+                <div class="card-body h1"><?= count($prestasi); ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#">Prestasi</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>

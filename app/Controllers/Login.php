@@ -66,7 +66,7 @@ class Login extends BaseController
                             return redirect()->to('/login');
                         }
                     } else {
-                        session()->setFlashdata('pesan', 'Maaf! akun ada belum aktif!');
+                        session()->setFlashdata('pesan', 'Maaf! akun anda belum aktif!');
                         return redirect()->to('/login');
                     }
                 } else {
