@@ -1,25 +1,11 @@
-<?php
-$segmentsLength = count($uri->getSegments());
-?>
-
 <?= $this->extend("layout/template-admin"); ?>
 
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
-    <ol class="breadcrumb mb-4">
-        <?php if ($segmentsLength != 1) : ?>
-            <?php for ($i = 1; $i < $segmentsLength; $i++) : ?>
-                <li class="breadcrumb-item"><a href="/<?= $uri->getSegment($i); ?>"><?= ucfirst($uri->getSegment($i)) ?></a></li>
-            <?php endfor ?>
-            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment($i)) ?></li>
-        <?php else : ?>
-            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment(1)); ?></li>
-        <?php endif ?>
-    </ol>
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
-                <div class="card-body h1"><?= count($akun); ?></div>
+                <div class="card-body h1"><?= count($gabung); ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#">Anggota</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>

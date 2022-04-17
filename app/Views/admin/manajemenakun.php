@@ -1,21 +1,7 @@
-<?php
-$segmentsLength = count($uri->getSegments());
-?>
-
 <?= $this->extend("layout/template-admin"); ?>
 
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
-    <ol class="breadcrumb">
-        <?php if ($segmentsLength != 1) : ?>
-            <?php for ($i = 1; $i < $segmentsLength; $i++) : ?>
-                <li class="breadcrumb-item"><a href="/<?= $uri->getSegment($i); ?>"><?= ucfirst($uri->getSegment($i)) ?></a></li>
-            <?php endfor ?>
-            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment($i)) ?></li>
-        <?php else : ?>
-            <li class="breadcrumb-item active"><?= ucfirst($uri->getSegment(1)); ?></li>
-        <?php endif ?>
-    </ol>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambahakun">
@@ -204,8 +190,12 @@ $segmentsLength = count($uri->getSegments());
                             <td><?= $a['role']; ?></td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                    <a href="/admin/hapusakun/<?= $a['id']; ?>" class="btn btn-danger">Hapus</a>
-                                    <a href="/admin/editakun/<?= $a['id']; ?>" class="btn btn-success">Edit</a>
+                                    <form action="/admin/<?= $a['id']; ?>" method="POST" class="d-inline">
+                                        <?php csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?')">Hapus</button>
+                                    </form>
+                                    <a href="/admin/editakun/<?= $a['id']; ?>" class="btn btn-warning">Edit</a>
                                     <a href="/admin/detailakun/<?= $a['id']; ?>" class="btn btn-primary">Detail</a>
                                 </div>
                             </td>
