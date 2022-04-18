@@ -61,6 +61,12 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesPelatihUser);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesPelatihAdmin = document.getElementById('datatablesPelatihAdmin');
+    if (datatablesPelatihAdmin) {
+        new simpleDatatables.DataTable(datatablesPelatihAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;

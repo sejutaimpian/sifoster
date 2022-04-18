@@ -124,9 +124,6 @@ a:hover {
 .eris-mh-20{
   max-height: 20vh;
 }
-.table > tbody > tr > *{
-  vertical-align: middle;
-}
 .bg-grad{
   /* background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(161,255,255,1) 11.3%, rgba(6,255,255,1) 41.2%, rgba(0,216,216,1) 77.8% ); */
   background-color: #A9C9FF;

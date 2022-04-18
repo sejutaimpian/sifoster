@@ -3,11 +3,6 @@
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambahakun">
-        Tambah Akun
-    </button>
-
     <?php if (session()->getFlashData('pesan')) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?= session()->getFlashdata('pesan'); ?>
@@ -157,9 +152,16 @@
 
     <!-- Datatbles -->
     <div class="card mb-4">
-        <div class="card-header">
-            <i class="fa-solid fa-people-group"></i>
-            Akun-akun
+        <div class="card-header d-flex align-items-center">
+            <div class="col-10">
+                <i class="fa-solid fa-bullhorn fs-4 me-2"></i>
+                <span class="fs-4 eris-hidden">Manajemen Akun</span>
+            </div>
+            <div class="col-2 text-end">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#tambahakun">
+                    <i class="fa-solid fa-square-plus fs-4"></i>
+                </button>
+            </div>
         </div>
         <div class="card-body">
             <table id="datatablesDaftarBaru">
@@ -178,7 +180,9 @@
                         <tr>
                             <td><?= $a['namasiswa']; ?></td>
                             <td><?= $a['email']; ?></td>
-                            <td><?= $a['fotoformal']; ?></td>
+                            <td>
+                                <img src="/image/<?= $a['fotoformal']; ?>" alt="" class="eris-mh-20">
+                            </td>
                             <td><?php
                                 if ($a['is_active'] == 0) {
                                     echo "Belum Aktif";
@@ -189,7 +193,7 @@
                             </td>
                             <td><?= $a['role']; ?></td>
                             <td>
-                                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
                                     <form action="/admin/<?= $a['id']; ?>" method="POST" class="d-inline">
                                         <?php csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">

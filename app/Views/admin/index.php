@@ -43,7 +43,7 @@
     <!-- Datatbles -->
     <div class="card mb-4">
         <div class="card-header">
-            <i class="fa-solid fa-fan"></i>
+            <i class="fa-solid fa-fan me-2"></i>
             Pendaftar Baru
         </div>
         <div class="card-body">

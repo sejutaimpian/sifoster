@@ -5,7 +5,7 @@
     <!-- Datatbles -->
     <div class="card mb-4">
         <div class="card-header">
-            <i class="fa-solid fa-people-group"></i>
+            <i class="fa-solid fa-people-group me-2"></i>
             Anggota
         </div>
         <div class="card-body">
