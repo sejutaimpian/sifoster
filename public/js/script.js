@@ -44,12 +44,21 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 });
 window.addEventListener('DOMContentLoaded', event => {
-    // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
-
     const datatablesAnggotaAdmin = document.getElementById('datatablesAnggotaAdmin');
     if (datatablesAnggotaAdmin) {
         new simpleDatatables.DataTable(datatablesAnggotaAdmin);
+    }
+});
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesAnggotaUser = document.getElementById('datatablesAnggotaUser');
+    if (datatablesAnggotaUser) {
+        new simpleDatatables.DataTable(datatablesAnggotaUser);
+    }
+});
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesPelatihUser = document.getElementById('datatablesPelatihUser');
+    if (datatablesPelatihUser) {
+        new simpleDatatables.DataTable(datatablesPelatihUser);
     }
 });
 

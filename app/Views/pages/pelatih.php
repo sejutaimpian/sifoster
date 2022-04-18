@@ -1,42 +1,38 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
-<div class="container">
-    <div class="row">
-        <h1><?= $title; ?></h1>
-        <div class="col-md-12">
-            <div class="table-responsive-md">
-                <table class="table table-hover">
-                    <thead>
+<div class="container my-3">
+    <!-- Datatbles -->
+    <div class="card">
+        <div class="card-header">
+            <i class="fa-solid fa-people-group me-2"></i>
+            Pelatih
+        </div>
+        <div class="card-body">
+            <table id="datatablesPelatihUser">
+                <thead>
+                    <tr>
+                        <th>Nama Pelatih</th>
+                        <th>Nomor Induk Pelatih</th>
+                        <th>Sertifikasi</th>
+                        <th>Pengalaman</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($pelatih as $p) : ?>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nama Lengkap</th>
-                            <th scope="col">Nomor Induk Pelatih</th>
-                            <th scope="col">Sertifikasi</th>
-                            <th scope="col">Pengalaman</th>
-                            <th scope="col">Mulai Kerja</th>
-                            <th scope="col">Foto</th>
+                            <td><?= $p['nama_pelatih']; ?></td>
+                            <td><?= $p['nomor_pelatih']; ?></td>
+                            <td><?= $p['sertifikasi']; ?></td>
+                            <td><?= $p['pengalaman']; ?></td>
+                            <td>
+                                <img src="/image/<?= $p['foto']; ?>" alt="" class="eris-mh-20">
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1 ?>
-                        <?php foreach ($pelatih as $p) : ?>
-                            <tr>
-                                <th scope="row"><?= $i; ?></th>
-                                <td><?= $p['nama_pelatih']; ?></td>
-                                <td><?= $p['nomor_pelatih']; ?></td>
-                                <td><?= $p['sertifikasi']; ?></td>
-                                <td><?= $p['pengalaman']; ?></td>
-                                <td><?= $p['tahun_kerja']; ?></td>
-                                <td>
-                                    <img src="/image/<?= $p['foto']; ?>" alt="" class="img-fluid eris-mh-20">
-                                </td>
-                            </tr>
-                            <?php $i++ ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

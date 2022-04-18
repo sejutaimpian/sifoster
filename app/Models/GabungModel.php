@@ -18,6 +18,6 @@ class GabungModel extends Model
     }
     public function getAnggotaUser()
     {
-        return $this->db->table('gabung')->select('namasiswa, jeniskelamin, klasifikasi, fotoformal')->get()->getResultArray();
+        return $this->db->table('gabung')->select('namasiswa, jeniskelamin, email, klasifikasi, fotoformal')->get()->getResultArray();
     }
 }
