@@ -77,13 +77,13 @@
         </div>
         <div class="col-md-3 my-auto">
             <h2>Misi</h2>
-            <ul>
+            <ol>
                 <?php $i = 1 ?>
                 <?php foreach ($profile as $p) : ?>
-                    <li><?= $i; ?>. <?= $p['misi']; ?>.</li>
+                    <li><?= $p['misi']; ?>.</li>
                     <?php $i++ ?>
                 <?php endforeach; ?>
-            </ul>
+            </ol>
         </div>
     </div>
 </div>

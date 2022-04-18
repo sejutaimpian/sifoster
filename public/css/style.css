@@ -155,7 +155,9 @@ a:hover {
 @media (max-width: 576px) {
 }
 @media (max-width: 768px) {
-  
+  .eris-md-mh{
+    max-height: 40vh;
+  }
   .eris-hidden {
     display: none;
   }

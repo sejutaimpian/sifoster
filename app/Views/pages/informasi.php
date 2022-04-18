@@ -9,9 +9,27 @@
                 <?php foreach ($informasi as $i) : ?>
                     <a href="/informasi/detail/<?= $i['id']; ?>" class="list-group-item list-group-item-action">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1"><?= $i['judul']; ?></h5>
+                            <h5 class="mb-1 fw-bold"><?= $i['judul']; ?></h5>
                             <small><?= $i['created_at']; ?></small>
                         </div>
+                        <?php
+                        if ($i['idkategori'] == $kategori[0]['id']) {
+                            $informasikategori = $kategori[0]['namakategori'];
+                        } elseif ($i['idkategori'] == $kategori[1]['id']) {
+                            $informasikategori = $kategori[1]['namakategori'];
+                        } elseif ($i['idkategori'] == $kategori[2]['id']) {
+                            $informasikategori = $kategori[2]['namakategori'];
+                        } elseif ($i['idkategori'] == $kategori[3]['id']) {
+                            $informasikategori = $kategori[3]['namakategori'];
+                        } elseif ($i['idkategori'] == $kategori[4]['id']) {
+                            $informasikategori = $kategori[4]['namakategori'];
+                        } elseif ($i['idkategori'] == $kategori[5]['id']) {
+                            $informasikategori = $kategori[5]['namakategori'];
+                        } else {
+                            $informasikategori = $kategori[6]['namakategori'];
+                        }
+                        ?>
+                        <small class="bg-primary text-light px-2"><?= $informasikategori; ?></small>
                         <p class="mb-0 description"><?= $i['isi']; ?></p>
                         <p class="mb-1">. . . .</p>
                     </a>

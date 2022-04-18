@@ -8,7 +8,7 @@
         </div>
         <div class="row g-0">
             <div class="col-md-4">
-                <img src="/image/<?= $gabung[0]['fotoformal']; ?>" class="img-fluid rounded-start" alt="...">
+                <img src="/image/<?= $gabung[0]['fotoformal']; ?>" class="img-fluid eris-md-mh" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">

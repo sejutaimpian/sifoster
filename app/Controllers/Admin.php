@@ -40,12 +40,17 @@ class Admin extends BaseController
         if (session()->get('role') != 'admin') {
             return redirect()->to('user');
         }
+        $gabungModel = new GabungModel();
+        $anggota = $gabungModel->getAnggotaAdmin();
         $data = [
             'title' => 'Data Anggota',
             'profile' => $this->profile,
+            'anggota' => $anggota
         ];
         return view('admin/anggota', $data);
     }
+
+    // Manajemen Akun
     public function manajemenakun()
     {
         if (session()->get('role') != 'admin') {

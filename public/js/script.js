@@ -43,6 +43,15 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesDaftarBaru);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+    const datatablesAnggotaAdmin = document.getElementById('datatablesAnggotaAdmin');
+    if (datatablesAnggotaAdmin) {
+        new simpleDatatables.DataTable(datatablesAnggotaAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;

@@ -81,7 +81,7 @@
             <label for="is_active" class="col-sm-2 col-form-label">Status</label>
             <div class="col-sm-10">
                 <select class="form-select <?= ($validation->hasError('is_active')) ? 'is-invalid' : ''; ?>" id="is_active" name="is_active">
-                    <?php if (old('is_active') == '0') : ?>
+                    <?php if ($user[0]['is_active'] == '0') : ?>
                         <option value="0">Belum Aktif</option>
                         <option value="1">Aktif</option>
                     <?php else : ?>

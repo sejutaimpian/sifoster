@@ -73,7 +73,7 @@
                                 }
                                 ?>
                             </td>
-                            <td><a href="" class="btn btn-primary">Aktifkan</a></td>
+                            <td><a href="/admin/editakun/<?= $a['id']; ?>" class="btn btn-primary">Aktifkan</a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
