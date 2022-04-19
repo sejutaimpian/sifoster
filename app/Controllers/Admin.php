@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\GabungModel;
 use App\Models\KategoriModel;
+use App\Models\KompetisiModel;
 use App\Models\PelatihModel;
 use App\Models\PrestasiModel;
 use App\Models\UserModel;
@@ -622,5 +623,172 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data kategori berhasil diupdate!');
 
         return redirect()->to('/admin/kategori');
+    }
+
+    // Kurikulum
+
+
+    // Kompetisi
+    public function kompetisi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisi = $kompetisiModel->findAll();
+        $data = [
+            'title' => 'Data Kompetisi',
+            'profile' => $this->profile,
+            'kompetisi' => $kompetisi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/kompetisi', $data);
+    }
+    public function tambahkompetisi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $kompetisiModel = new KompetisiModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'namakompetisi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'waktukompetisi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'link' => [
+                'rules' => 'valid_url_strict',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'valid_url_strict' => 'Kolom {field} harus berformat link yang memuat http atau https. contoh: https://indonesia.go.id/'
+                ]
+            ],
+            'keterangan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data kompetisi gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/kompetisi')->withInput();
+        }
+
+        $kompetisiModel->save([
+            'namakompetisi' => $this->request->getPost('namakompetisi'),
+            'waktukompetisi' => $this->request->getPost('waktukompetisi'),
+            'tempat' => $this->request->getPost('tempat'),
+            'link' => $this->request->getPost('link'),
+            'keterangan' => $this->request->getPost('keterangan'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data kompetisi baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/kompetisi');
+    }
+    public function hapuskompetisi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisiModel->delete($id);
+        session()->setFlashdata('pesan', 'Data kompetisi berhasil dihapus!');
+
+        return redirect()->to('/admin/kompetisi');
+    }
+    public function editkompetisi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisi = $kompetisiModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Edit Kompetisi',
+            'profile' => $this->profile,
+            'kompetisi' => $kompetisi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editkompetisi', $data);
+    }
+    public function updatekompetisi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisi = $kompetisiModel->where('id', $id)->findAll();
+
+        // Validasi Input
+        if (!$this->validate([
+            'namakompetisi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'waktukompetisi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'link' => [
+                'rules' => 'valid_url_strict',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'valid_url_strict' => 'Kolom {field} harus berformat link yang memuat http atau https. contoh: https://indonesia.go.id/'
+                ]
+            ],
+            'keterangan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data kompetisi gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editkompetisi/' . $kompetisi[0]['id'])->withInput();
+        }
+
+        $kompetisiModel->save([
+            'id' => $this->request->getPost('id'),
+            'namakompetisi' => $this->request->getPost('namakompetisi'),
+            'waktukompetisi' => $this->request->getPost('waktukompetisi'),
+            'tempat' => $this->request->getPost('tempat'),
+            'link' => $this->request->getPost('link'),
+            'keterangan' => $this->request->getPost('keterangan'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data kompetisi berhasil diupdate!');
+
+        return redirect()->to('/admin/kompetisi');
     }
 }

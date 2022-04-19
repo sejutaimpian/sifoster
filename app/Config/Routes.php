@@ -42,6 +42,8 @@ $routes->get('admin/hapuspelatih/(:num)', 'Admin::pelatih');
 $routes->delete('admin/hapuspelatih/(:num)', 'Admin::hapuspelatih/$1');
 $routes->get('admin/hapuskategori/(:num)', 'Admin::kategori');
 $routes->delete('admin/hapuskategori/(:num)', 'Admin::hapuskategori/$1');
+$routes->get('admin/hapuskompetisi/(:num)', 'Admin::kompetisi');
+$routes->delete('admin/hapuskompetisi/(:num)', 'Admin::hapuskompetisi/$1');
 
 /*
  * --------------------------------------------------------------------

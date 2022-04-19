@@ -73,6 +73,12 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesKategoriAdmin);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesKompetisiAdmin = document.getElementById('datatablesKompetisiAdmin');
+    if (datatablesKompetisiAdmin) {
+        new simpleDatatables.DataTable(datatablesKompetisiAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;
