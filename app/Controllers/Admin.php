@@ -57,7 +57,7 @@ class Admin extends BaseController
         $pelatihModel = new PelatihModel();
         $pelatih = $pelatihModel->findAll();
         $data = [
-            'title' => 'Data Anggota',
+            'title' => 'Data Pelatih',
             'profile' => $this->profile,
             'pelatih' => $pelatih,
             'validation' => \Config\Services::validation()
@@ -145,6 +145,114 @@ class Admin extends BaseController
         $pelatihModel = new PelatihModel();
         $pelatihModel->delete($id);
         session()->setFlashdata('pesan', 'Data pelatih berhasil dihapus!');
+
+        return redirect()->to('/admin/pelatih');
+    }
+    public function editpelatih($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $pelatihModel = new PelatihModel();
+        $pelatih = $pelatihModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Edit Pelatih',
+            'profile' => $this->profile,
+            'pelatih' => $pelatih,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editpelatih', $data);
+    }
+    public function updatepelatih($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $pelatihModel = new PelatihModel();
+        $pelatih = $pelatihModel->where('id', $id)->findAll();
+
+        // Cek Fotoformal
+        if ($this->request->getPost('foto') != null) {
+            $foto = $this->request->getFile('foto');
+            $rule_foto = "uploaded[foto]|max_size[foto,2048]|is_image[foto]|mime_in[foto,image/jpg,image/jpeg,image/png]";
+        } else {
+            $foto = $pelatih[0]['foto'];
+            $rule_foto = "permit_empty";
+        }
+        // Cek Tahun Kerja
+        if ($this->request->getPost('tahun_kerja') != null) {
+            $tahunkerja = $this->request->getPost('tahun_kerja');
+            $rule_tahunkerja = "required";
+        } else {
+            $tahunkerja = $pelatih[0]['tahun_kerja'];
+            $rule_tahunkerja = "permit_empty";
+        }
+
+        // Validasi Input
+        if (!$this->validate([
+            'nama_pelatih' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'nomor_pelatih' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'sertifikasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'pengalaman' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'tahun_kerja' => [
+                'rules' => $rule_tahunkerja,
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'foto' => [
+                'rules' => $rule_foto,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data pelatih gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editpelatih/' . $pelatih[0]['id'])->withInput();
+        }
+        // Ambil File fotoformal
+        if ($foto != $pelatih[0]['foto']) {
+            $fotoUpload = $this->request->getFile('foto');
+            $foto = $fotoUpload->getRandomName();
+            $fotoUpload->move('image', $foto);
+        }
+
+        $pelatihModel->save([
+            'id' => $this->request->getPost('id'),
+            'nama_pelatih' => $this->request->getPost('nama_pelatih'),
+            'nomor_pelatih' => $this->request->getPost('nomor_pelatih'),
+            'sertifikasi' => $this->request->getPost('sertifikasi'),
+            'pengalaman' => $this->request->getPost('pengalaman'),
+            'tahun_kerja' => $tahunkerja,
+            'fotoformal' => $foto
+        ]);
+
+        session()->setFlashdata('pesan', 'Akun berhasil diupdate!');
 
         return redirect()->to('/admin/pelatih');
     }

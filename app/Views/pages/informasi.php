@@ -13,23 +13,18 @@
                             <small><?= $i['created_at']; ?></small>
                         </div>
                         <?php
-                        if ($i['idkategori'] == $kategori[0]['id']) {
-                            $informasikategori = $kategori[0]['namakategori'];
-                        } elseif ($i['idkategori'] == $kategori[1]['id']) {
-                            $informasikategori = $kategori[1]['namakategori'];
-                        } elseif ($i['idkategori'] == $kategori[2]['id']) {
-                            $informasikategori = $kategori[2]['namakategori'];
-                        } elseif ($i['idkategori'] == $kategori[3]['id']) {
-                            $informasikategori = $kategori[3]['namakategori'];
-                        } elseif ($i['idkategori'] == $kategori[4]['id']) {
-                            $informasikategori = $kategori[4]['namakategori'];
-                        } elseif ($i['idkategori'] == $kategori[5]['id']) {
-                            $informasikategori = $kategori[5]['namakategori'];
-                        } else {
-                            $informasikategori = $kategori[6]['namakategori'];
+                        function searchForId($id, $array)
+                        {
+                            foreach ($array as $key => $val) {
+                                if ($val['id'] === $id) {
+                                    return $val['namakategori'];
+                                }
+                            }
+                            return null;
                         }
+                        $namakategori = searchForId($i['idkategori'], $kategori);
                         ?>
-                        <small class="bg-primary text-light px-2"><?= $informasikategori; ?></small>
+                        <small class="bg-primary text-light px-2"><?= $namakategori; ?></small>
                         <p class="mb-0 description"><?= $i['isi']; ?></p>
                         <p class="mb-1">. . . .</p>
                     </a>
