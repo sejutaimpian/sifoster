@@ -7,7 +7,7 @@
             <div class="card bg-primary text-white mb-4">
                 <div class="card-body h1"><?= count($gabung); ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Anggota</a>
+                    <a class="small text-white stretched-link" href="/admin/anggota">Anggota</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
             <div class="card bg-warning text-white mb-4">
                 <div class="card-body h1"><?= count($pelatih); ?></div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">Pelatih</a>
+                    <a class="small text-white stretched-link" href="/admin/pelatih">Pelatih</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -42,9 +42,11 @@
     </div>
     <!-- Datatbles -->
     <div class="card mb-4">
-        <div class="card-header">
-            <i class="fa-solid fa-fan me-2"></i>
-            Pendaftar Baru
+        <div class="card-header d-flex align-items-center">
+            <div class="col-10">
+                <i class="fa-solid fa-fan fs-4 me-2"></i>
+                <span class="fs-4 eris-hidden">Pendaftar Baru</span>
+            </div>
         </div>
         <div class="card-body">
             <table id="datatablesDaftarBaru">

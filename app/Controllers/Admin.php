@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\KategoriModel;
 use App\Models\PelatihModel;
 use App\Models\PrestasiModel;
 use App\Models\UserModel;
@@ -49,6 +50,8 @@ class Admin extends BaseController
         ];
         return view('admin/anggota', $data);
     }
+
+    // Pelatih
     public function pelatih()
     {
         if (session()->get('role') != 'admin') {
@@ -513,5 +516,111 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Akun berhasil diupdate!');
 
         return redirect()->to('/admin/manajemenakun');
+    }
+
+    // Kategori
+    public function kategori()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kategoriModel = new KategoriModel();
+        $kategori = $kategoriModel->findAll();
+        $data = [
+            'title' => 'Data Kategori',
+            'profile' => $this->profile,
+            'kategori' => $kategori,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/kategori', $data);
+    }
+    public function tambahkategori()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $kategoriModel = new KategoriModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'namakategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Kategori gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/kategori')->withInput();
+        }
+
+        $kategoriModel->save([
+            'namakategori' => $this->request->getPost('namakategori'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data kategori baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/kategori');
+    }
+    public function hapuskategori($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kategoriModel = new KategoriModel();
+        $kategoriModel->delete($id);
+        session()->setFlashdata('pesan', 'Akun berhasil dihapus!');
+
+        return redirect()->to('/admin/kategori');
+    }
+    public function editkategori($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kategoriModel = new KategoriModel();
+        $kategori = $kategoriModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Edit Kategori',
+            'profile' => $this->profile,
+            'kategori' => $kategori,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editkategori', $data);
+    }
+    public function updatekategori($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kategoriModel = new KategoriModel();
+        $kategori = $kategoriModel->where('id', $id)->findAll();
+
+        // Validasi Input
+        if (!$this->validate([
+            'namakategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data kategori gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editkategori/' . $kategori[0]['id'])->withInput();
+        }
+
+        $kategoriModel->save([
+            'id' => $this->request->getPost('id'),
+            'namakategori' => $this->request->getPost('namakategori')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data kategori berhasil diupdate!');
+
+        return redirect()->to('/admin/kategori');
     }
 }

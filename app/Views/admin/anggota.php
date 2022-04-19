@@ -5,8 +5,10 @@
     <!-- Datatbles -->
     <div class="card mb-4">
         <div class="card-header">
-            <i class="fa-solid fa-people-group me-2"></i>
-            Anggota
+            <div class="col-10">
+                <i class="fa-solid fa-people-group fs-4 me-2"></i>
+                <span class="fs-4 eris-hidden">Anggota</span>
+            </div>
         </div>
         <div class="card-body">
             <table id="datatablesAnggotaAdmin">
