@@ -4,9 +4,9 @@
 
 Sistem informasi terpadu adalah gabungan dari beberapa sistem informasi. Objek yang saya gunakan adalah organisasi Sekolah Sepak Bola.
 
-## **Status Repo**
+## Status Repo
 
-**Masih Tahap Pengembangan**
+`Masih Tahap Pengembangan`
 
 <hr>
 
