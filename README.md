@@ -1,63 +1,91 @@
-# CodeIgniter 4 Application Starter
+# Sistem Informasi Terpadu => Sekolah Sepak Bola
 
-## What is CodeIgniter?
+## Tentang repo ini
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+Sistem informasi terpadu adalah gabungan dari beberapa sistem informasi. Objek yang saya gunakan adalah organisasi Sekolah Sepak Bola.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## **Status Repo**
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+**Masih Tahap Pengembangan**
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+<hr>
 
-## Installation & updates
+## Daftar Isi
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+1. [Teknologi](#teknologi)
+2. [Fitur](#fitur)
+3. [Demo Aplikasi](#demo-aplikasi)
+4. [Instalasi](#instalasi)
+   - [Spesifikasi yang Dibutuhkan](#spesifikasi)
+   - [Cara Install](#cara-install)
+   - [Login Admin](#cara-install)
+   - [Testing](#automated-testing)
+5. [Lisensi](#license)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+<hr>
 
-## Setup
+## Teknologi
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Teknologi yang digunakan untuk membangun aplikasi ini diantaranya:
 
-## Important Change with index.php
+1. [Codeigniter 4](https://codeigniter.com/)
+2. [Bootstrap 5](https://getbootstrap.com/)
+3. [Fontawsome](https://fontawesome.com/)
+4. [Sbadmin](https://github.com/startbootstrap/startbootstrap-sb-admin)
+5. [Datatables](https://datatables.net/)
+6. [MariaDB / MySql](https://mariadb.org/)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+<hr>
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## Fitur
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Fitur pada Aplikasi ini meliputi:
 
-## Repository Management
+1. Halaman Pengunjung
+   - Home
+   - Anggota
+   - Pelatih
+   - Kurikulum
+   - Informasi
+   - Kompetisi
+   - Prestasi
+   - Gallery
+   - Gabung / Daftar
+2. Halaman Dashboard Admin
+3. Halaman Dashboard Anggota / User
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+<hr>
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## Demo Aplikasi
 
-## Server Requirements
+| URL      | Belum Tersedia |
+| -------- | -------------- |
+| username | -              |
+| password | -              |
 
-PHP version 7.3 or higher is required, with the following extensions installed:
+<hr>
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## Instalasi
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Spesifikasi
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+- PHP ^7.3
+- Codeigniter 4.x
+- Database MySQL atau MariaDB 5.x
+
+### Cara Install
+
+### Login Admin
+
+```
+Username: -
+Password: -
+```
+
+### Automated Testing
+
+<hr>
+
+## Lisensi
+
+Project Sistem Informasi Terpadu ini merupakan software yang free dan open source di bawah [lisensi MIT](LICENSE).
