@@ -57,6 +57,20 @@
                             </a>
                         </div>
                         <div class="">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseInformasi" aria-expanded="false" aria-controls="collapseInformasi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                                Blog
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseInformasi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/admin/informasi">Informasi</a>
+                                    <a class="nav-link" href="/admin/kategori">Kategori</a>
+                                    <a class="nav-link" href="/admin/tulisananggota">Tulisan Anggota</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="">
                             <a class="nav-link" href="/admin/presensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-point-up"></i></div>
                                 Absensi
@@ -97,7 +111,6 @@
                             <div class="collapse" id="collapsePengaturan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/admin/profileorganisasi">Profile Organisasi</a>
-                                    <a class="nav-link" href="/admin/kategori">Kategori</a>
                                     <a class="nav-link" href="/admin/manajemenakun">Manajemen Akun</a>
                                 </nav>
                             </div>

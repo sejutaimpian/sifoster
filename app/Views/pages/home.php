@@ -1,6 +1,7 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
+
 <!-- Hero -->
 <div class="container">
     <div class="row my-3 rounded bg-impact text-light">

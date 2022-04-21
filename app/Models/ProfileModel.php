@@ -8,7 +8,7 @@ class ProfileModel extends Model
 {
     protected $table = 'profile';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama_organisasi', 'visi', 'fsekre', 'flapang', 'created_at', 'updated_at'];
+    protected $allowedFields = ['nama_organisasi', 'visi', 'flogo', 'fhero', 'fsekre', 'flapang'];
 
     public function getJoin()
     {

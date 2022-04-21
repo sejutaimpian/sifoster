@@ -85,6 +85,12 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesPrestasiAdmin);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesProfileAdmin = document.getElementById('datatablesProfileAdmin');
+    if (datatablesProfileAdmin) {
+        new simpleDatatables.DataTable(datatablesProfileAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;

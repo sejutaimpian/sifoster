@@ -261,264 +261,6 @@ class Admin extends BaseController
         return redirect()->to('/admin/pelatih');
     }
 
-    // Manajemen Akun
-    public function manajemenakun()
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-        $usermodel = new UserModel();
-        $akun = $usermodel->orderBy('is_active', 'ASC')->findAll();
-        $data = [
-            'title' => 'Manajemen Akun',
-            'profile' => $this->profile,
-            'akun' => $akun,
-            'validation' => \Config\Services::validation()
-        ];
-        return view('admin/manajemenakun', $data);
-    }
-    public function tambahakun()
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-
-        $userModel = new UserModel();
-
-        // Validasi Input
-        if (!$this->validate([
-            'namasiswa' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'nowhatsapp' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'valid_email' => 'Kolom {field} harus berformat email'
-                ]
-            ],
-            'password' => [
-                'rules' => 'required|matches[konfirmasipassword]',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'matches' => 'Password Konfirmasi tidak sesuai'
-                ]
-            ],
-            'konfirmasipassword' => [
-                'rules' => 'required|matches[password]',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'matches' => 'Password Konfirmasi tidak sesuai'
-                ]
-            ],
-            'fotoformal' => [
-                'rules' => 'uploaded[fotoformal]|max_size[fotoformal,2048]|is_image[fotoformal]|mime_in[fotoformal,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Upload gambar terlebih dahulu!',
-                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
-                    'is_image' => 'Yang anda pilih bukan gambar',
-                    'mime_in' => 'Yang anda pilih bukan gambar'
-                ]
-            ],
-            'role' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'is_active' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-        ])) {
-            // $validation =  \Config\Services::validation();
-            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
-            session()->setFlashdata('peringatan', 'Akun gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
-            return redirect()->to('/admin/manajemenakun')->withInput();
-        }
-        // Ambil File fotoformal
-        $fotoUpload1 = $this->request->getFile('fotoformal');
-        $namaFotoUpload1 = $fotoUpload1->getRandomName();
-        $fotoUpload1->move('image', $namaFotoUpload1);
-
-        $userModel->save([
-            'namasiswa' => $this->request->getPost('namasiswa'),
-            'nowhatsapp' => $this->request->getPost('nowhatsapp'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'fotoformal' => $namaFotoUpload1,
-            'role' => $this->request->getPost('role'),
-            'is_active' => $this->request->getPost('is_active')
-        ]);
-
-        session()->setFlashdata('pesan', 'Akun baru sudah didaftarkan!');
-
-        return redirect()->to('/admin/manajemenakun');
-    }
-    public function detailakun($id)
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-        $gabungModel = new GabungModel();
-        $gabung = $gabungModel->where('id', $id)->findAll();
-        $data = [
-            'title' => 'Detail Anggota',
-            'profile' => $this->profile,
-            'gabung' => $gabung
-        ];
-        return view('admin/detailanggota', $data);
-    }
-    public function hapusakun($id)
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-        $userModel = new UserModel();
-        $userModel->delete($id);
-        session()->setFlashdata('pesan', 'Akun berhasil dihapus!');
-
-        return redirect()->to('/admin/manajemenakun');
-    }
-    public function editakun($id)
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-        $userModel = new UserModel();
-        $user = $userModel->where('id', $id)->findAll();
-        $data = [
-            'title' => 'Edit Akun',
-            'profile' => $this->profile,
-            'user' => $user,
-            'validation' => \Config\Services::validation()
-        ];
-        return view('admin/editakun', $data);
-    }
-    public function updateakun($id)
-    {
-        if (session()->get('role') != 'admin') {
-            return redirect()->to('user');
-        }
-        $userModel = new UserModel();
-        $user = $userModel->where('id', $id)->findAll();
-
-        // Cek Fotoformal
-        if ($this->request->getPost('fotoformal') != null) {
-            $fotoformal = $this->request->getFile('fotoformal');
-            $rule_fotoformal = "uploaded[fotoformal]|max_size[fotoformal,2048]|is_image[fotoformal]|mime_in[fotoformal,image/jpg,image/jpeg,image/png]";
-        } else {
-            $fotoformal = $user[0]['fotoformal'];
-            $rule_fotoformal = "permit_empty";
-        }
-
-        // Cek Password
-        if ($this->request->getPost('password') == "") {
-            $password = $user[0]['password'];
-            $rule_password = "permit_empty";
-            $rule_konfirmasipassword = "permit_empty";
-        } else {
-            $password = $this->request->getPost('password');
-            $rule_password = "matches[konfirmasipassword]";
-            $rule_konfirmasipassword = "matches[password]";
-        }
-
-        // Validasi Input
-        if (!$this->validate([
-            'namasiswa' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'nowhatsapp' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'email' => [
-                'rules' => 'required|valid_email',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'valid_email' => 'Kolom {field} harus berformat email'
-                ]
-            ],
-            'password' => [
-                'rules' => $rule_password,
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'matches' => 'Password Konfirmasi tidak sesuai'
-                ]
-            ],
-            'konfirmasipassword' => [
-                'rules' => $rule_konfirmasipassword,
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!',
-                    'matches' => 'Password Konfirmasi tidak sesuai'
-                ]
-            ],
-            'fotoformal' => [
-                'rules' => $rule_fotoformal,
-                'errors' => [
-                    'uploaded' => 'Upload gambar terlebih dahulu!',
-                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
-                    'is_image' => 'Yang anda pilih bukan gambar',
-                    'mime_in' => 'Yang anda pilih bukan gambar'
-                ]
-            ],
-            'role' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'is_active' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-        ])) {
-            // $validation =  \Config\Services::validation();
-            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
-            session()->setFlashdata('peringatan', 'Akun gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
-            return redirect()->to('/admin/editakun/' . $user[0]['id'])->withInput();
-        }
-        // Ambil File fotoformal
-        if ($fotoformal != $user[0]['fotoformal']) {
-            $fotoUpload = $this->request->getFile('fotoformal');
-            $fotoformal = $fotoUpload->getRandomName();
-            $fotoUpload->move('image', $fotoformal);
-        }
-
-        $userModel->save([
-            'id' => $this->request->getPost('id'),
-            'namasiswa' => $this->request->getPost('namasiswa'),
-            'nowhatsapp' => $this->request->getPost('nowhatsapp'),
-            'email' => $this->request->getPost('email'),
-            'password' => ($this->request->getPost('password') == "") ? $password : password_hash($password, PASSWORD_DEFAULT),
-            'fotoformal' => $fotoformal,
-            'role' => $this->request->getPost('role'),
-            'is_active' => $this->request->getPost('is_active')
-        ]);
-
-        session()->setFlashdata('pesan', 'Akun berhasil diupdate!');
-
-        return redirect()->to('/admin/manajemenakun');
-    }
-
     // Kategori
     public function kategori()
     {
@@ -930,5 +672,415 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data prestasi berhasil dihapus!');
 
         return redirect()->to('/admin/prestasi');
+    }
+
+    // Pengaturan
+    // Profile Organisasi
+    public function profileorganisasi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $profileorganisasi = $this->profileModel->getJoin();
+        $data = [
+            'title' => 'Profile Organisasi',
+            'profile' => $this->profile,
+            'profileorganisasi' => $profileorganisasi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/profileorganisasi', $data);
+    }
+    public function updateprofileorganisasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $profileorganisasi = $this->profileModel->where('id', $id)->findAll();
+
+        // Cek Foto Logo
+        if ($this->request->getPost('flogo') != null) {
+            $flogo = $this->request->getFile('flogo');
+            $rule_flogo = "uploaded[flogo]|max_size[flogo,2048]|is_image[flogo]|mime_in[flogo,image/jpg,image/jpeg,image/png]";
+        } else {
+            $flogo = $profileorganisasi[0]['flogo'];
+            $rule_flogo = "permit_empty";
+        }
+        // Cek Foto Hero
+        if ($this->request->getPost('fhero') != null) {
+            $fhero = $this->request->getFile('fhero');
+            $rule_fhero = "uploaded[fhero]|max_size[fhero,2048]|is_image[fhero]|mime_in[fhero,image/jpg,image/jpeg,image/png]";
+        } else {
+            $fhero = $profileorganisasi[0]['fhero'];
+            $rule_fhero = "permit_empty";
+        }
+        // Cek Foto Sekre
+        if ($this->request->getPost('fsekre') != null) {
+            $fsekre = $this->request->getFile('fsekre');
+            $rule_fsekre = "uploaded[fsekre]|max_size[fsekre,2048]|is_image[fsekre]|mime_in[fsekre,image/jpg,image/jpeg,image/png]";
+        } else {
+            $fsekre = $profileorganisasi[0]['fsekre'];
+            $rule_fsekre = "permit_empty";
+        }
+        // Cek Foto Lapang
+        if ($this->request->getPost('flapang') != null) {
+            $flapang = $this->request->getFile('flapang');
+            $rule_flapang = "uploaded[flapang]|max_size[flapang,2048]|is_image[flapang]|mime_in[flapang,image/jpg,image/jpeg,image/png]";
+        } else {
+            $flapang = $profileorganisasi[0]['flapang'];
+            $rule_flapang = "permit_empty";
+        }
+
+        // Validasi Input
+        if (!$this->validate([
+            'nama_organisasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'visi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'flogo' => [
+                'rules' => $rule_flogo,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'fhero' => [
+                'rules' => $rule_fhero,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'fsekre' => [
+                'rules' => $rule_fsekre,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'flapang' => [
+                'rules' => $rule_flapang,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Profile organisasi gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/profileorganisasi/' . $profileorganisasi[0]['id'])->withInput();
+        }
+        // Ambil File flogo
+        if ($flogo != $profileorganisasi[0]['flogo']) {
+            $fotoUploadflogo = $this->request->getFile('flogo');
+            $flogo = $fotoUploadflogo->getRandomName();
+            $fotoUploadflogo->move('image', $flogo);
+        }
+        // Ambil File fhero
+        if ($fhero != $profileorganisasi[0]['fhero']) {
+            $fotoUploadfhero = $this->request->getFile('fhero');
+            $fhero = $fotoUploadfhero->getRandomName();
+            $fotoUploadfhero->move('image', $fhero);
+        }
+        // Ambil File fsekre
+        if ($fsekre != $profileorganisasi[0]['fsekre']) {
+            $fotoUploadfsekre = $this->request->getFile('fsekre');
+            $fsekre = $fotoUploadfsekre->getRandomName();
+            $fotoUploadfsekre->move('image', $fsekre);
+        }
+        // Ambil File fsekre
+        if ($flapang != $profileorganisasi[0]['flapang']) {
+            $fotoUploadflapang = $this->request->getFile('flapang');
+            $flapang = $fotoUploadflapang->getRandomName();
+            $fotoUploadflapang->move('image', $flapang);
+        }
+
+        $this->profileModel->save([
+            'id' => $this->request->getPost('id'),
+            'nama_organisasi' => $this->request->getPost('nama_organisasi'),
+            'visi' => $this->request->getPost('visi'),
+            'flogo' => $flogo,
+            'fhero' => $fhero,
+            'fsekre' => $fsekre,
+            'flapang' => $flapang,
+        ]);
+
+        session()->setFlashdata('pesan', 'Profile organisasi berhasil diupdate!');
+
+        return redirect()->to('/admin/profileorganisasi');
+    }
+
+    // Manajemen Akun
+    public function manajemenakun()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $usermodel = new UserModel();
+        $akun = $usermodel->orderBy('is_active', 'ASC')->findAll();
+        $data = [
+            'title' => 'Manajemen Akun',
+            'profile' => $this->profile,
+            'akun' => $akun,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/manajemenakun', $data);
+    }
+    public function tambahakun()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $userModel = new UserModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'namasiswa' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'nowhatsapp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'valid_email' => 'Kolom {field} harus berformat email'
+                ]
+            ],
+            'password' => [
+                'rules' => 'required|matches[konfirmasipassword]',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'matches' => 'Password Konfirmasi tidak sesuai'
+                ]
+            ],
+            'konfirmasipassword' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'matches' => 'Password Konfirmasi tidak sesuai'
+                ]
+            ],
+            'fotoformal' => [
+                'rules' => 'uploaded[fotoformal]|max_size[fotoformal,2048]|is_image[fotoformal]|mime_in[fotoformal,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'role' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'is_active' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Akun gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/manajemenakun')->withInput();
+        }
+        // Ambil File fotoformal
+        $fotoUpload1 = $this->request->getFile('fotoformal');
+        $namaFotoUpload1 = $fotoUpload1->getRandomName();
+        $fotoUpload1->move('image', $namaFotoUpload1);
+
+        $userModel->save([
+            'namasiswa' => $this->request->getPost('namasiswa'),
+            'nowhatsapp' => $this->request->getPost('nowhatsapp'),
+            'email' => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'fotoformal' => $namaFotoUpload1,
+            'role' => $this->request->getPost('role'),
+            'is_active' => $this->request->getPost('is_active')
+        ]);
+
+        session()->setFlashdata('pesan', 'Akun baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/manajemenakun');
+    }
+    public function detailakun($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $gabungModel = new GabungModel();
+        $gabung = $gabungModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Detail Anggota',
+            'profile' => $this->profile,
+            'gabung' => $gabung
+        ];
+        return view('admin/detailanggota', $data);
+    }
+    public function hapusakun($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $userModel = new UserModel();
+        $userModel->delete($id);
+        session()->setFlashdata('pesan', 'Akun berhasil dihapus!');
+
+        return redirect()->to('/admin/manajemenakun');
+    }
+    public function editakun($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $userModel = new UserModel();
+        $user = $userModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Edit Akun',
+            'profile' => $this->profile,
+            'user' => $user,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editakun', $data);
+    }
+    public function updateakun($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $userModel = new UserModel();
+        $user = $userModel->where('id', $id)->findAll();
+
+        // Cek Fotoformal
+        if ($this->request->getPost('fotoformal') != null) {
+            $fotoformal = $this->request->getFile('fotoformal');
+            $rule_fotoformal = "uploaded[fotoformal]|max_size[fotoformal,2048]|is_image[fotoformal]|mime_in[fotoformal,image/jpg,image/jpeg,image/png]";
+        } else {
+            $fotoformal = $user[0]['fotoformal'];
+            $rule_fotoformal = "permit_empty";
+        }
+
+        // Cek Password
+        if ($this->request->getPost('password') == "") {
+            $password = $user[0]['password'];
+            $rule_password = "permit_empty";
+            $rule_konfirmasipassword = "permit_empty";
+        } else {
+            $password = $this->request->getPost('password');
+            $rule_password = "matches[konfirmasipassword]";
+            $rule_konfirmasipassword = "matches[password]";
+        }
+
+        // Validasi Input
+        if (!$this->validate([
+            'namasiswa' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'nowhatsapp' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'valid_email' => 'Kolom {field} harus berformat email'
+                ]
+            ],
+            'password' => [
+                'rules' => $rule_password,
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'matches' => 'Password Konfirmasi tidak sesuai'
+                ]
+            ],
+            'konfirmasipassword' => [
+                'rules' => $rule_konfirmasipassword,
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!',
+                    'matches' => 'Password Konfirmasi tidak sesuai'
+                ]
+            ],
+            'fotoformal' => [
+                'rules' => $rule_fotoformal,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'role' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'is_active' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Akun gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editakun/' . $user[0]['id'])->withInput();
+        }
+        // Ambil File fotoformal
+        if ($fotoformal != $user[0]['fotoformal']) {
+            $fotoUpload = $this->request->getFile('fotoformal');
+            $fotoformal = $fotoUpload->getRandomName();
+            $fotoUpload->move('image', $fotoformal);
+        }
+
+        $userModel->save([
+            'id' => $this->request->getPost('id'),
+            'namasiswa' => $this->request->getPost('namasiswa'),
+            'nowhatsapp' => $this->request->getPost('nowhatsapp'),
+            'email' => $this->request->getPost('email'),
+            'password' => ($this->request->getPost('password') == "") ? $password : password_hash($password, PASSWORD_DEFAULT),
+            'fotoformal' => $fotoformal,
+            'role' => $this->request->getPost('role'),
+            'is_active' => $this->request->getPost('is_active')
+        ]);
+
+        session()->setFlashdata('pesan', 'Akun berhasil diupdate!');
+
+        return redirect()->to('/admin/manajemenakun');
     }
 }
