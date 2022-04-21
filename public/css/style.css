@@ -139,6 +139,10 @@ a:hover {
 .bg-impact{
   background-color: rgb(165, 5, 42);
 }
+.btn-link:hover{
+  background-color: gray;
+  color: var(--bs-white);
+}
 
 
 /* ------------- BREAKPOINTS ------------- */

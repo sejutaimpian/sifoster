@@ -791,4 +791,144 @@ class Admin extends BaseController
 
         return redirect()->to('/admin/kompetisi');
     }
+
+    // Prestasi
+    public function prestasi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisi = $kompetisiModel->findAll();
+        $prestasiModel = new PrestasiModel();
+        $prestasi = $prestasiModel->findAll();
+        $data = [
+            'title' => 'Data Prestasi',
+            'profile' => $this->profile,
+            'prestasi' => $prestasi,
+            'kompetisi' => $kompetisi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/prestasi', $data);
+    }
+    public function tambahprestasi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $prestasiModel = new PrestasiModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'juara' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'ajang' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data prestasi gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/prestasi')->withInput();
+        }
+
+        $prestasiModel->save([
+            'juara' => $this->request->getPost('juara'),
+            'ajang' => $this->request->getPost('ajang'),
+            'waktu' => $this->request->getPost('waktu'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data prestasi baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/prestasi');
+    }
+    public function editprestasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kompetisiModel = new KompetisiModel();
+        $kompetisi = $kompetisiModel->findAll();
+        $prestasiModel = new PrestasiModel();
+        $prestasi = $prestasiModel->where('id', $id)->findAll();
+        $data = [
+            'title' => 'Edit Prestasi',
+            'profile' => $this->profile,
+            'prestasi' => $prestasi,
+            'kompetisi' => $kompetisi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editprestasi', $data);
+    }
+    public function updateprestasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $prestasiModel = new PrestasiModel();
+        $prestasi = $prestasiModel->where('id', $id)->findAll();
+
+        // Validasi Input
+        if (!$this->validate([
+            'juara' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'ajang' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'waktu' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data prestasi gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editprestasi/' . $prestasi[0]['id'])->withInput();
+        }
+
+        $prestasiModel->save([
+            'id' => $this->request->getPost('id'),
+            'juara' => $this->request->getPost('juara'),
+            'ajang' => $this->request->getPost('ajang'),
+            'waktu' => $this->request->getPost('waktu'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data prestasi berhasil diupdate!');
+
+        return redirect()->to('/admin/prestasi');
+    }
+    public function hapusprestasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $prestasiModel = new PrestasiModel();
+        $prestasiModel->delete($id);
+        session()->setFlashdata('pesan', 'Data prestasi berhasil dihapus!');
+
+        return redirect()->to('/admin/prestasi');
+    }
 }

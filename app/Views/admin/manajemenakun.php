@@ -85,25 +85,17 @@
                             <label for="role" class="col-sm-2 col-form-label">Role</label>
                             <div class="col-sm-10">
                                 <select class="form-select <?= ($validation->hasError('role')) ? 'is-invalid' : ''; ?>" id="role" name="role">
-                                    <?php if (old('role')) {
-                                        if (old('role') == 'admin') {
-                                    ?>
-                                            <option value="admin">Admin</option>
-                                            <option value="user">User</option>
-                                        <?php
-                                        } else {
-                                        ?>
-                                            <option value="user">User</option>
-                                            <option value="admin">Admin</option>
-                                        <?php
-                                        }
-                                    } else {
-                                        ?>
-                                        <option value="">Pilih....</option>
-                                        <option value="admin">Admin</option>
-                                        <option value="user">User</option>
-                                    <?php
-                                    } ?>
+                                    <?php $roles = ['admin', 'user'] ?>
+                                    <?php if (old('role')) : ?>
+                                        <?php foreach ($roles as $role) : ?>
+                                            <option <?= (old('role')) == $role ? "selected" : "" ?> value="<?= $role; ?>"><?= $role; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <option selected disabled>Pilih....</option>
+                                        <?php foreach ($roles as $role) : ?>
+                                            <option value="<?= $role; ?>"><?= $role; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif ?>
                                 </select>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('role'); ?>

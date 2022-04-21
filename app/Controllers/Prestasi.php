@@ -15,7 +15,7 @@ class Prestasi extends BaseController
         $kategoriModel = new KategoriModel();
         $kategori = $kategoriModel->findAll();
         $prestasiModel = new PrestasiModel();
-        $prestasi = $prestasiModel->findAll();
+        $prestasi = $prestasiModel->orderBy('waktu', 'DESC')->findAll();
         $data = [
             'title' => 'Prestasi',
             'profile' => $this->profile,

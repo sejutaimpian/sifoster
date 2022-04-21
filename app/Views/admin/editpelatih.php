@@ -63,6 +63,7 @@
             </div>
         </div>
         <div class="float-end mb-3">
+            <a href="/admin/pelatih" class="btn btn-outline-secondary">Batal</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>

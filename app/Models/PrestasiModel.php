@@ -8,5 +8,5 @@ class PrestasiModel extends Model
 {
     protected $table = 'prestasi';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'isi', 'idkategori', 'gambar'];
+    protected $allowedFields = ['juara', 'ajang', 'waktu'];
 }

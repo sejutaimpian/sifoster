@@ -44,13 +44,14 @@
         <div class="row mb-3">
             <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control <?= ($validation->hasError('keterangan')) ? 'is-invalid' : ''; ?>" id="keterangan" name="keterangan" value="<?= $kompetisi[0]['keterangan']; ?>">
+                <textarea placeholder="Tambahkan keterangan di sini" class="form-control <?= ($validation->hasError('keterangan')) ? 'is-invalid' : ''; ?>" id="keterangan" name="keterangan"><?= $kompetisi[0]['keterangan']; ?></textarea>
                 <div class="invalid-feedback">
                     <?= $validation->getError('keterangan'); ?>
                 </div>
             </div>
         </div>
         <div class="float-end mb-3">
+            <a href="/admin/kompetisi" class="btn btn-outline-secondary">Batal</a>
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
