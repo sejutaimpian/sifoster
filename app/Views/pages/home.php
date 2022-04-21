@@ -3,13 +3,14 @@
 <?= $this->section("content"); ?>
 <!-- Hero -->
 <div class="container">
-    <div class="row bg-grad my-3 rounded">
+    <div class="row my-3 rounded bg-impact text-light">
         <div class="col-md-6 my-auto">
             <h1 class="fw-bold"><?= $profile[0]['nama_organisasi']; ?></h1>
             <p>Adalah sekolah sepakbola ternama di daerah Cisayong. Anggota dari penjuru daerah, pelatihan optimal, pelatih profesional, dan tentunya ramah di kantong.</p>
-            <h4>Segeralah bergabung bersama kami</h4>
-            <a href="#about" class="btn btn-outline-dark">Tentang Kami </a>
-            <a href="/gabung" class="btn btn-primary">Gabung</a>
+            <div class="mb-2">
+                <a href="#about" class="btn btn-link">Tentang Kami </a>
+                <a href="/gabung" class="btn btn-primary">Gabung</a>
+            </div>
         </div>
         <div class="col-md-6 my-auto py-2">
             <img src="/image/<?= $profile[0]['fhero']; ?>" alt="" class="img-fluid img-thumbnail">
