@@ -96,9 +96,9 @@
                             </a>
                             <div class="collapse" id="collapseKeuangan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/admin/laporankeuangan">Laporan</a>
                                     <a class="nav-link" href="/admin/pemasukan">Pemasukan</a>
                                     <a class="nav-link" href="/admin/pengeluaran">Pengeluaran</a>
-                                    <a class="nav-link" href="/admin/laporankeuangan">Laporan</a>
                                 </nav>
                             </div>
                         </div>

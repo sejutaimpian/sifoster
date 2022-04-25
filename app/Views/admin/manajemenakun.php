@@ -146,7 +146,7 @@
     <div class="card mb-4">
         <div class="card-header d-flex align-items-center">
             <div class="col-10">
-                <i class="fa-solid fa-bullhorn fs-4 me-2"></i>
+                <i class="fa-solid fa-user-gear fs-4 me-2"></i>
                 <span class="fs-4 eris-hidden">Manajemen Akun</span>
             </div>
             <div class="col-2 text-end">
