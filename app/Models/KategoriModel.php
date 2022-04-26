@@ -8,5 +8,5 @@ class KategoriModel extends Model
 {
     protected $table = 'kategori';
     protected $useTimestamps = true;
-    protected $allowedFields = ['namakategori'];
+    protected $allowedFields = ['ciriid,namakategori'];
 }

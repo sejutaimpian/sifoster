@@ -15,7 +15,7 @@ class Informasi extends BaseController
     }
     public function index()
     {
-        $informasi = $this->informasiModel->findAll();
+        $informasi = $this->informasiModel->getJoinAll();
         $data = [
             'title' => 'Informasi',
             'profile' => $this->profile,

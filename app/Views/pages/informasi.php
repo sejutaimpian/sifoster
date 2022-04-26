@@ -12,19 +12,7 @@
                             <h5 class="mb-1 fw-bold"><?= $i['judul']; ?></h5>
                             <small><?= $i['created_at']; ?></small>
                         </div>
-                        <?php
-                        function searchForId($id, $array)
-                        {
-                            foreach ($array as $key => $val) {
-                                if ($val['id'] === $id) {
-                                    return $val['namakategori'];
-                                }
-                            }
-                            return null;
-                        }
-                        $namakategori = searchForId($i['idkategori'], $kategori);
-                        ?>
-                        <small class="bg-primary text-light px-2"><?= $namakategori; ?></small>
+                        <small class="bg-primary text-light px-2"><?= $i['namakategori']; ?></small>
                         <p class="mb-0 description"><?= $i['isi']; ?></p>
                         <p class="mb-1">. . . .</p>
                     </a>
