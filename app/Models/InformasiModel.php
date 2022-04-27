@@ -14,13 +14,19 @@ class InformasiModel extends Model
     public function getJoinInformasiKategori($id)
     {
         return $this->db->table('informasi')
-            ->join('kategori', 'informasi.idkategori = kategori.id')->where('informasi.id', $id)
+            ->join('kategori_blog', 'informasi.idkategori = kategori_blog.idkategori')->where('informasi.id', $id)
+            ->get()->getResultArray();
+    }
+    public function getJoinKategoriInformasi($id)
+    {
+        return $this->db->table('informasi')
+            ->join('kategori_blog', 'informasi.idkategori = kategori_blog.idkategori')->where('kategori_blog.idkategori', $id)
             ->get()->getResultArray();
     }
     public function getJoinAll()
     {
-        return $this->db->table('informasi')->select('informasi.id, judul, isi, idkategori, gambar, informasi.created_at, informasi.updated_at, ciriid, namakategori')
-            ->join('kategori', 'kategori.ciriid = informasi.idkategori')
+        return $this->db->table('informasi')
+            ->join('kategori_blog', 'kategori_blog.idkategori = informasi.idkategori')
             ->get()->getResultArray();
     }
 }

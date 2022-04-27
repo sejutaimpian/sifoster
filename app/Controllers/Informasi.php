@@ -35,4 +35,15 @@ class Informasi extends BaseController
         ];
         return view('pages/informasidetail', $data);
     }
+    public function kategori($idkategori)
+    {
+        $informasikategori = $this->informasiModel->getJoinKategoriInformasi($idkategori);
+        $data = [
+            'title' => 'Kategori',
+            'profile' => $this->profile,
+            'kategori' => $this->kategori,
+            'informasi' => $informasikategori
+        ];
+        return view('pages/informasikategori', $data);
+    }
 }

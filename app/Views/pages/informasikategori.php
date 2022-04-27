@@ -1,4 +1,6 @@
 <?= $this->extend("layout/template"); ?>
+<?php
+?>
 
 <?= $this->section("content"); ?>
 <div class="container">
@@ -19,7 +21,9 @@
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="col-md-4">
+
+        <!-- side content -->
+        <div class="col-md-4 mt-3">
             <div class="mb-3">
                 <h5>Cari Informasi</h5>
                 <form class="input-group">

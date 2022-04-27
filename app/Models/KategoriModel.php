@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class KategoriModel extends Model
 {
-    protected $table = 'kategori';
-    protected $useTimestamps = true;
-    protected $allowedFields = ['ciriid,namakategori'];
+    protected $table = 'kategori_blog';
+    protected $primaryKey = 'idkategori';
+    protected $allowedFields = ['namakategori'];
 }
