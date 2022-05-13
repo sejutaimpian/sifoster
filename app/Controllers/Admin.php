@@ -278,6 +278,76 @@ class Admin extends BaseController
         ];
         return view('admin/informasi', $data);
     }
+    public function tambahinformasi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $informasiModel = new InformasiModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'gambar' => [
+                'rules' => 'uploaded[gambar]|max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'isi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Informasi gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/informasi')->withInput();
+        }
+        // Ambil File gambarformal
+        $fotoUpload1 = $this->request->getFile('gambar');
+        $namaFotoUpload1 = $fotoUpload1->getRandomName();
+        $fotoUpload1->move('image', $namaFotoUpload1);
+
+        $informasiModel->save([
+            'judul' => $this->request->getPost('judul'),
+            'isi' => $this->request->getPost('isi'),
+            'idkategori' => $this->request->getPost('kategori'),
+            'gambar' => $namaFotoUpload1,
+        ]);
+
+        session()->setFlashdata('pesan', 'Informasi baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/informasi');
+    }
+    public function hapusinformasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $informasiModel = new InformasiModel();
+        $informasiModel->delete($id);
+        session()->setFlashdata('pesan', 'Informasi berhasil dihapus!');
+
+        return redirect()->to('/admin/informasi');
+    }
 
     // Kategori
     public function kategori()
