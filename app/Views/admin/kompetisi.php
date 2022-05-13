@@ -113,7 +113,9 @@
                             <td><?= $k['namakompetisi']; ?></td>
                             <td><?= $k['waktukompetisi']; ?></td>
                             <td><?= $k['tempat']; ?></td>
-                            <td><?= $k['link']; ?></td>
+                            <td>
+                                <a href="<?= $k['link']; ?>"><?= $k['link']; ?></a>
+                            </td>
                             <td><?= $k['keterangan']; ?></td>
                             <td>
                                 <div class="" role="group" aria-label="Basic mixed styles example">
