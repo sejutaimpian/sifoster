@@ -29,7 +29,7 @@
                 <h5>Kategori Informasi</h5>
                 <div class="list-group">
                     <?php foreach ($kategori as $k) : ?>
-                        <a href="/informasi/kategori/<?= $k['id']; ?>" class="list-group-item list-group-item-action"><?= $k['namakategori']; ?></a>
+                        <a href="/informasi/kategori/<?= $k['idkategori']; ?>" class="list-group-item list-group-item-action"><?= $k['namakategori']; ?></a>
                     <?php endforeach ?>
                 </div>
             </div>

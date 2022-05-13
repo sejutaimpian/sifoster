@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\InformasiModel;
 use App\Models\KategoriModel;
 use App\Models\KompetisiModel;
 use App\Models\PelatihModel;
@@ -261,6 +262,23 @@ class Admin extends BaseController
         return redirect()->to('/admin/pelatih');
     }
 
+    // Informasi
+    public function informasi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $informasiModel = new InformasiModel();
+        $infomasi = $informasiModel->getJoinAll();
+        $data = [
+            'title' => 'Data Informasi',
+            'profile' => $this->profile,
+            'informasi' => $infomasi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/informasi', $data);
+    }
+
     // Kategori
     public function kategori()
     {
@@ -325,7 +343,7 @@ class Admin extends BaseController
             return redirect()->to('user');
         }
         $kategoriModel = new KategoriModel();
-        $kategori = $kategoriModel->where('id', $id)->findAll();
+        $kategori = $kategoriModel->where('idkategori', $id)->findAll();
         $data = [
             'title' => 'Edit Kategori',
             'profile' => $this->profile,
@@ -340,7 +358,7 @@ class Admin extends BaseController
             return redirect()->to('user');
         }
         $kategoriModel = new KategoriModel();
-        $kategori = $kategoriModel->where('id', $id)->findAll();
+        $kategori = $kategoriModel->where('idkategori', $id)->findAll();
 
         // Validasi Input
         if (!$this->validate([
@@ -358,7 +376,7 @@ class Admin extends BaseController
         }
 
         $kategoriModel->save([
-            'id' => $this->request->getPost('id'),
+            'idkategori' => $this->request->getPost('id'),
             'namakategori' => $this->request->getPost('namakategori')
         ]);
 

@@ -2,9 +2,9 @@
 
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
-    <form action="/admin/updatekategori/<?= $kategori[0]['id']; ?>" method="POST" enctype="multipart/form-data">
+    <form action="/admin/updatekategori/<?= $kategori[0]['idkategori']; ?>" method="POST" enctype="multipart/form-data">
         <?= csrf_field(); ?>
-        <input type="hidden" name="id" value="<?= $kategori[0]['id']; ?>">
+        <input type="hidden" name="id" value="<?= $kategori[0]['idkategori']; ?>">
         <div class="row mb-3">
             <label for="namakategori" class="col-sm-2 col-form-label">Nama Kategori</label>
             <div class="col-sm-10">

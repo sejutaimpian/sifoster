@@ -7,7 +7,7 @@
     <div class="row my-3 rounded bg-impact text-light">
         <div class="col-md-6 my-auto">
             <h1 class="fw-bold"><?= $profile[0]['nama_organisasi']; ?></h1>
-            <p>Adalah sekolah sepakbola ternama di daerah Cisayong. Anggota dari penjuru daerah, pelatihan optimal, pelatih profesional, dan tentunya ramah di kantong.</p>
+            <p>Sekolah sepakbola ternama di daerah Cisayong. Anggota dari penjuru daerah, pelatihan optimal, pelatih profesional, dan tentunya ramah di kantong.</p>
             <div class="mb-2">
                 <a href="#about" class="btn btn-link">Tentang Kami </a>
                 <a href="/gabung" class="btn btn-primary">Gabung</a>
