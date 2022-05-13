@@ -101,3 +101,13 @@ for(let i = 0; i<navLinkLengthLogin; i++){
         navLinkLogin[i].classList.add("active");
     }
 }
+
+// CKEDITOR
+ClassicEditor
+    .create( document.querySelector( '#isi' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );

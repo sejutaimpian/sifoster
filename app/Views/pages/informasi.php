@@ -13,7 +13,7 @@
                             <small><?= $i['created_at']; ?></small>
                         </div>
                         <small class="bg-primary text-light px-2"><?= $i['namakategori']; ?></small>
-                        <p class="mb-0 description"><?= $i['isi']; ?></p>
+                        <div class="mb-0 description"><?= $i['isi']; ?></div>
                         <p class="mb-1">. . . .</p>
                     </a>
                 <?php endforeach; ?>

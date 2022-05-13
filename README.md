@@ -34,6 +34,7 @@ Teknologi yang digunakan untuk membangun aplikasi ini diantaranya:
 4. [Sbadmin](https://github.com/startbootstrap/startbootstrap-sb-admin)
 5. [Datatables](https://datatables.net/)
 6. [MariaDB / MySql](https://mariadb.org/)
+7. [Ckeditor 5](https://ckeditor.com/)
 
 <hr>
 
