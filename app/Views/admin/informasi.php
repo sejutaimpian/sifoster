@@ -39,7 +39,18 @@
                         <div class="row mb-3">
                             <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori" value="<?= old('kategori'); ?>">
+                                <select class="form-select <?= ($validation->hasError('kategori')) ? 'is-invalid' : ''; ?>" id="kategori" name="kategori">
+                                    <?php if (old('kategori')) : ?>
+                                        <?php foreach ($kategori as $k) : ?>
+                                            <option <?= (old('kategori')) == $k['idkategori'] ? "selected" : "" ?> value="<?= $k['idkategori']; ?>"><?= $k['namakategori']; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <option selected disabled>Pilih....</option>
+                                        <?php foreach ($kategori as $k) : ?>
+                                            <option value="<?= $k['idkategori']; ?>"><?= $k['namakategori']; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif ?>
+                                </select>
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('kategori'); ?>
                                 </div>

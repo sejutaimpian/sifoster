@@ -26,7 +26,7 @@ class InformasiModel extends Model
     public function getJoinAll()
     {
         return $this->db->table('informasi')
-            ->join('kategori_blog', 'kategori_blog.idkategori = informasi.idkategori')
+            ->join('kategori_blog', 'kategori_blog.idkategori = informasi.idkategori')->orderBy('created_at', 'DESC')
             ->get()->getResultArray();
     }
 }

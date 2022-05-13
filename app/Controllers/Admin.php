@@ -269,11 +269,14 @@ class Admin extends BaseController
             return redirect()->to('user');
         }
         $informasiModel = new InformasiModel();
+        $kategoriModel = new KategoriModel();
         $infomasi = $informasiModel->getJoinAll();
+        $kategori = $kategoriModel->findAll();
         $data = [
             'title' => 'Data Informasi',
             'profile' => $this->profile,
             'informasi' => $infomasi,
+            'kategori' => $kategori,
             'validation' => \Config\Services::validation()
         ];
         return view('admin/informasi', $data);
@@ -345,6 +348,96 @@ class Admin extends BaseController
         $informasiModel = new InformasiModel();
         $informasiModel->delete($id);
         session()->setFlashdata('pesan', 'Informasi berhasil dihapus!');
+
+        return redirect()->to('/admin/informasi');
+    }
+    public function editinformasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $informasiModel = new InformasiModel();
+        $informasi = $informasiModel->where('id', $id)->findAll();
+        $kategoriModel = new KategoriModel();
+        $kategori = $kategoriModel->findAll();
+        $data = [
+            'title' => 'Edit Informasi',
+            'profile' => $this->profile,
+            'informasi' => $informasi,
+            'kategori' => $kategori,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editinformasi', $data);
+    }
+    public function updateinformasi($id)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $informasiModel = new InformasiModel();
+        $informasi = $informasiModel->where('id', $id)->findAll();
+
+        // Cek Gambar
+        if ($this->request->getPost('gambar') != null) {
+            $gambar = $this->request->getFile('gambar');
+            $rule_gambar = "uploaded[gambar]|max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]";
+        } else {
+            $gambar = $informasi[0]['gambar'];
+            $rule_gambar = "permit_empty";
+        }
+
+        // Validasi Input
+        if (!$this->validate([
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'isi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'gambar' => [
+                'rules' => $rule_gambar,
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Informasi gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editinformasi/' . $informasi[0]['id'])->withInput();
+        }
+
+        // Ambil File fotoformal
+        if ($gambar != $informasi[0]['gambar']) {
+            $fotoUpload = $this->request->getFile('gambar');
+            $fotoformal = $fotoUpload->getRandomName();
+            $fotoUpload->move('image', $fotoformal);
+        }
+
+        $informasiModel->save([
+            'id' => $this->request->getPost('id'),
+            'judul' => $this->request->getPost('judul'),
+            'isi' => $this->request->getPost('isi'),
+            'idkategori' => $this->request->getPost('kategori'),
+            'gambar' => $gambar,
+        ]);
+
+        session()->setFlashdata('pesan', 'Informasi berhasil diupdate!');
 
         return redirect()->to('/admin/informasi');
     }
