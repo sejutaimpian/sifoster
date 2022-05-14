@@ -4,29 +4,21 @@
 <div class="container my-2">
     <div class="row">
         <div class="col-md-9">
-            <div id="pendahuluan">
+            <div id="pendahuluan" class="mb-3">
                 <h2>Pendahuluan</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
+                <?= $kurikulum[0]['pendahuluan']; ?>
             </div>
-            <div id="klasifikasi">
+            <div id="klasifikasi" class="mb-3">
                 <h2>Klasifikasi / Kelompok Belajar</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
+                <?= $kurikulum[0]['klasifikasi']; ?>
             </div>
-            <div id="penilaian">
+            <div id="penilaian" class="mb-3">
                 <h2>Penilaian Siswa</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
+                <?= $kurikulum[0]['penilaian']; ?>
             </div>
-            <div id="tatatertib">
+            <div id="tatatertib" class="mb-3">
                 <h2>Tata Tertib Siswa</h2>
-                <p>Kurikulum ini hadir untuk memberikan kepastian materi kepada para calon pendaftar sebagai patokan materi apa saja yang akan dipelajari nanti di sekolah</p>
-                <p>Kurikulum ini memuat pengklasifikasian siswa didik, penilaian, dan tata tertib siswa</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nemo expedita eos possimus, asperiores fugiat aperiam ut molestiae pariatur vel vero, perspiciatis dolorem, quas voluptatem. Quibusdam voluptatem in atque aspernatur?</p>
+                <?= $kurikulum[0]['tatatertib']; ?>
             </div>
         </div>
         <div class="col-md-3 eris-hidden">

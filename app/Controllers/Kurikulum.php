@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\KurikulumModel;
+
 class Kurikulum extends BaseController
 {
     public function __construct()
@@ -9,9 +11,12 @@ class Kurikulum extends BaseController
     }
     public function index()
     {
+        $kurikulumModel = new KurikulumModel();
+        $kurikulum = $kurikulumModel->findAll();
         $data = [
             'title' => 'Kurikulum',
-            'profile' => $this->profile
+            'profile' => $this->profile,
+            'kurikulum' => $kurikulum
         ];
         return view('pages/kurikulum', $data);
     }
