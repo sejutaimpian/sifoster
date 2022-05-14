@@ -109,8 +109,43 @@ for(let i = 0; i<navLinkLengthLogin; i++){
 }
 
 // CKEDITOR
+    // Informasi
 ClassicEditor
     .create( document.querySelector( '#isi' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    // Kurikulum
+ClassicEditor
+    .create( document.querySelector( '#ta_pendahuluan' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+ClassicEditor
+    .create( document.querySelector( '#ta_klasifikasi' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+ClassicEditor
+    .create( document.querySelector( '#ta_penilaian' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+ClassicEditor
+    .create( document.querySelector( '#ta_tatatertib' ) )
     .then( editor => {
         console.log( editor );
     } )
