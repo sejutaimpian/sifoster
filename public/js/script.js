@@ -91,6 +91,12 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesProfileAdmin);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesKurikulumAdmin = document.getElementById('datatablesKurikulumAdmin');
+    if (datatablesKurikulumAdmin) {
+        new simpleDatatables.DataTable(datatablesKurikulumAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;

@@ -6,6 +6,7 @@ use App\Models\GabungModel;
 use App\Models\InformasiModel;
 use App\Models\KategoriModel;
 use App\Models\KompetisiModel;
+use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
 use App\Models\PrestasiModel;
 use App\Models\UserModel;
@@ -260,6 +261,23 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Akun berhasil diupdate!');
 
         return redirect()->to('/admin/pelatih');
+    }
+
+    // Kurikulum
+    public function kurikulum()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $kurikulumModel = new KurikulumModel();
+        $kurikulum = $kurikulumModel->findAll();
+        $data = [
+            'title' => 'Data Kurikulum',
+            'profile' => $this->profile,
+            'kurikulum' => $kurikulum,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/kurikulum', $data);
     }
 
     // Informasi
