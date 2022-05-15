@@ -2,13 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\GabungModel;
 use App\Models\UserModel;
 
 class User extends BaseController
 {
     public function __construct()
     {
-        $model = new UserModel();
+        $model = new GabungModel();
         $this->user = $model->where('email', session()->get('email'))
             ->first();
         $this->uri = service('uri');
