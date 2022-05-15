@@ -114,7 +114,7 @@
                             <td><?= $k['waktukompetisi']; ?></td>
                             <td><?= $k['tempat']; ?></td>
                             <td>
-                                <a href="<?= $k['link']; ?>"><?= $k['link']; ?></a>
+                                <a href="<?= $k['link']; ?>" target="_blank"><?= $k['link']; ?></a>
                             </td>
                             <td><?= $k['keterangan']; ?></td>
                             <td>

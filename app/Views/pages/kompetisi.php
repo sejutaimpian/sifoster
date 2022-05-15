@@ -15,7 +15,7 @@
                         $bg = 'bg-primary';
                     }
                     ?>
-                    <a href="<?= $k['link']; ?>" class="list-group-item list-group-item-action">
+                    <a href="<?= $k['link']; ?>" class="list-group-item list-group-item-action" target="_blank">
                         <div class="d-flex w-100 justify-content-between">
                             <h3 class="mb-1"><?= $k['namakompetisi']; ?></h3>
                             <span class="badge <?= $bg; ?> rounded-pill my-auto"><?= $k['waktukompetisi']; ?></span>
