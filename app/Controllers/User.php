@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
 use App\Models\UserModel;
 
@@ -13,6 +14,7 @@ class User extends BaseController
         $this->gabungModel = new GabungModel();
         $this->pelatihModel = new PelatihModel();
         $this->userModel = new UserModel();
+        $this->kurikulumModel = new KurikulumModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -59,5 +61,18 @@ class User extends BaseController
             'user' => $this->user
         ];
         return view('user/pelatih', $data);
+    }
+
+    // Kurikulum
+    public function kurikulum()
+    {
+        $kurikulum = $this->kurikulumModel->findAll();
+        $data = [
+            'title' => 'Data Pelatih',
+            'profile' => $this->profile,
+            'kurikulum' => $kurikulum,
+            'user' => $this->user
+        ];
+        return view('user/kurikulum', $data);
     }
 }
