@@ -59,6 +59,19 @@
                             </a>
                         </div>
                         <div class="">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseInformasi" aria-expanded="false" aria-controls="collapseInformasi">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                                Blog
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseInformasi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">Informasi</a>
+                                    <a class="nav-link" href="#">Tulisan Anggota</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="">
                             <a class="nav-link" href="/user/presensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-point-up"></i></div>
                                 Absensi
@@ -91,15 +104,22 @@
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/user/profileorganisasi">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-book"></i></div>
-                                Profil Organisasi
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePengaturan" aria-expanded="false" aria-controls="collapsePengaturan">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                                Lainnya
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapsePengaturan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/admin/profileorganisasi">Profile Organisasi</a>
+                                    <a class="nav-link" href="/admin/manajemenakun">Manajemen Akun</a>
+                                </nav>
+                            </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/user/manajemenakun">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-computer-mouse"></i></div>
-                                Manajemen Akun
+                            <a class="nav-link" href="/logout" onclick="return confirm('Yakin untuk logout?');">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                                Logout
                             </a>
                         </div>
                     </div>
