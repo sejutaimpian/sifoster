@@ -135,4 +135,20 @@ class User extends BaseController
         ];
         return view('user/prestasi', $data);
     }
+
+    // Lainnya
+    public function profileorganisasi()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+        $profileorganisasi = $this->profileModel->getJoin();
+        $data = [
+            'title' => 'Profile Organisasi',
+            'profile' => $this->profile,
+            'profileorganisasi' => $profileorganisasi,
+            'user' => $this->user
+        ];
+        return view('user/profileorganisasi', $data);
+    }
 }

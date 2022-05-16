@@ -111,8 +111,8 @@
                             </a>
                             <div class="collapse" id="collapsePengaturan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/profileorganisasi">Profile Organisasi</a>
-                                    <a class="nav-link" href="/admin/manajemenakun">Manajemen Akun</a>
+                                    <a class="nav-link" href="/user/profileorganisasi">Profile Organisasi</a>
+                                    <a class="nav-link" href="/user/manajemenakun">Manajemen Akun</a>
                                 </nav>
                             </div>
                         </div>
