@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\PelatihModel;
 use App\Models\UserModel;
 
 class User extends BaseController
@@ -10,6 +11,10 @@ class User extends BaseController
     public function __construct()
     {
         $this->gabungModel = new GabungModel();
+        $this->pelatihModel = new PelatihModel();
+        $this->userModel = new UserModel();
+
+        $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
     public function index()
     {
@@ -21,7 +26,8 @@ class User extends BaseController
         $data = [
             'title' => 'Data Diri',
             'profile' => $this->profile,
-            'akun' => $gabung
+            'akun' => $gabung,
+            'user' => $this->user
         ];
         return view('user/index', $data);
     }
@@ -36,8 +42,22 @@ class User extends BaseController
         $data = [
             'title' => 'Data Anggota',
             'profile' => $this->profile,
-            'anggota' => $anggota
+            'anggota' => $anggota,
+            'user' => $this->user
         ];
         return view('user/anggota', $data);
+    }
+
+    // Pelatih
+    public function pelatih()
+    {
+        $pelatih = $this->pelatihModel->findAll();
+        $data = [
+            'title' => 'Data Pelatih',
+            'profile' => $this->profile,
+            'pelatih' => $pelatih,
+            'user' => $this->user
+        ];
+        return view('user/pelatih', $data);
     }
 }

@@ -91,6 +91,7 @@ class Login extends BaseController
     public function setUserSession($user)
     {
         $data = [
+            'id' => $user['id'],
             'namasiswa' => $user['namasiswa'],
             'email' => $user['email'],
             'role' => $user['role'],

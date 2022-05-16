@@ -1,4 +1,4 @@
-<?= $this->extend("layout/template-admin"); ?>
+<?= $this->extend("layout/template-user"); ?>
 
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
