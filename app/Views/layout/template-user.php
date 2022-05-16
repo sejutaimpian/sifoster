@@ -66,8 +66,8 @@
                             </a>
                             <div class="collapse" id="collapseInformasi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Informasi</a>
-                                    <a class="nav-link" href="#">Tulisan Anggota</a>
+                                    <a class="nav-link" href="/user/informasi">Informasi</a>
+                                    <a class="nav-link" href="/user/tulisan">Tulisan Anggota</a>
                                 </nav>
                             </div>
                         </div>

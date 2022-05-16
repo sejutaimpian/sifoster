@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\InformasiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
 use App\Models\UserModel;
@@ -15,6 +16,7 @@ class User extends BaseController
         $this->pelatihModel = new PelatihModel();
         $this->userModel = new UserModel();
         $this->kurikulumModel = new KurikulumModel();
+        $this->informasiModel = new InformasiModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -68,11 +70,24 @@ class User extends BaseController
     {
         $kurikulum = $this->kurikulumModel->findAll();
         $data = [
-            'title' => 'Data Pelatih',
+            'title' => 'Kurikulum',
             'profile' => $this->profile,
             'kurikulum' => $kurikulum,
             'user' => $this->user
         ];
         return view('user/kurikulum', $data);
+    }
+
+    // Informasi
+    public function informasi()
+    {
+        $informasi = $this->informasiModel->getJoinAll();
+        $data = [
+            'title' => 'Inforamsi',
+            'profile' => $this->profile,
+            'informasi' => $informasi,
+            'user' => $this->user
+        ];
+        return view('user/informasi', $data);
     }
 }
