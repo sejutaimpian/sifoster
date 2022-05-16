@@ -7,6 +7,7 @@ use App\Models\InformasiModel;
 use App\Models\KompetisiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
+use App\Models\PrestasiModel;
 use App\Models\UserModel;
 
 class User extends BaseController
@@ -19,6 +20,7 @@ class User extends BaseController
         $this->kurikulumModel = new KurikulumModel();
         $this->informasiModel = new InformasiModel();
         $this->kompetisiModel = new KompetisiModel();
+        $this->prestasiModel = new PrestasiModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -116,5 +118,21 @@ class User extends BaseController
             'user' => $this->user
         ];
         return view('user/kompetisi', $data);
+    }
+
+    // Prestasi
+    public function prestasi()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+        $prestasi = $this->prestasiModel->findAll();
+        $data = [
+            'title' => 'Prestasi',
+            'profile' => $this->profile,
+            'prestasi' => $prestasi,
+            'user' => $this->user
+        ];
+        return view('user/prestasi', $data);
     }
 }
