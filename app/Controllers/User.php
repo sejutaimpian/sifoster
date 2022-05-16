@@ -9,33 +9,34 @@ class User extends BaseController
 {
     public function __construct()
     {
-        $model = new GabungModel();
-        $this->user = $model->where('email', session()->get('email'))
-            ->first();
-        $this->uri = service('uri');
+        $this->gabungModel = new GabungModel();
     }
     public function index()
     {
-        if (session()->get('isLoggedIn') == 'admin') {
-            return redirect()->to('/admin');
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
         }
+        $gabung = $this->gabungModel->where('email', session()->get('email'))
+            ->first();
         $data = [
-            'title' => 'User',
+            'title' => 'Data Diri',
             'profile' => $this->profile,
-            'uri' => $this->uri,
-            'akun' => $this->user
+            'akun' => $gabung
         ];
         return view('user/index', $data);
     }
+
+    // Anggota
     public function anggota()
     {
         if (session()->get('role') != 'user') {
             return redirect()->to('admin');
         }
+        $anggota = $this->gabungModel->getAnggotaUser();
         $data = [
             'title' => 'Data Anggota',
             'profile' => $this->profile,
-            'uri' => $this->uri
+            'anggota' => $anggota
         ];
         return view('user/anggota', $data);
     }
