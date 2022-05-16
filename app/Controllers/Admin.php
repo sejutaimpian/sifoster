@@ -634,9 +634,6 @@ class Admin extends BaseController
         return redirect()->to('/admin/kategori');
     }
 
-    // Kurikulum
-
-
     // Kompetisi
     public function kompetisi()
     {

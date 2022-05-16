@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\GabungModel;
 use App\Models\InformasiModel;
+use App\Models\KompetisiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
 use App\Models\UserModel;
@@ -17,6 +18,7 @@ class User extends BaseController
         $this->userModel = new UserModel();
         $this->kurikulumModel = new KurikulumModel();
         $this->informasiModel = new InformasiModel();
+        $this->kompetisiModel = new KompetisiModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -55,6 +57,9 @@ class User extends BaseController
     // Pelatih
     public function pelatih()
     {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
         $pelatih = $this->pelatihModel->findAll();
         $data = [
             'title' => 'Data Pelatih',
@@ -68,6 +73,9 @@ class User extends BaseController
     // Kurikulum
     public function kurikulum()
     {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
         $kurikulum = $this->kurikulumModel->findAll();
         $data = [
             'title' => 'Kurikulum',
@@ -81,6 +89,9 @@ class User extends BaseController
     // Informasi
     public function informasi()
     {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
         $informasi = $this->informasiModel->getJoinAll();
         $data = [
             'title' => 'Inforamsi',
@@ -89,5 +100,21 @@ class User extends BaseController
             'user' => $this->user
         ];
         return view('user/informasi', $data);
+    }
+
+    // Kompetisi
+    public function kompetisi()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+        $kompetisi = $this->kompetisiModel->findAll();
+        $data = [
+            'title' => 'Kompetisi',
+            'profile' => $this->profile,
+            'kompetisi' => $kompetisi,
+            'user' => $this->user
+        ];
+        return view('user/kompetisi', $data);
     }
 }
