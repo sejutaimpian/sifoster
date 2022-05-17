@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\GabungModel;
 use App\Models\InformasiModel;
+use App\Models\KategoriModel;
 use App\Models\KompetisiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
@@ -21,6 +22,7 @@ class User extends BaseController
         $this->informasiModel = new InformasiModel();
         $this->kompetisiModel = new KompetisiModel();
         $this->prestasiModel = new PrestasiModel();
+        $this->kategoriModel = new KategoriModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -102,6 +104,85 @@ class User extends BaseController
             'user' => $this->user
         ];
         return view('user/informasi', $data);
+    }
+    public function tulisan()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+        $kategori = $this->kategoriModel->findAll();
+        $data = [
+            'title' => 'Data Informasi',
+            'profile' => $this->profile,
+            'kategori' => $kategori,
+            'validation' => \Config\Services::validation(),
+            'user' => $this->user
+        ];
+        return view('user/tulisan', $data);
+    }
+    public function tambahtulisan()
+    {
+        if (session()->get('role') != 'user') {
+            return redirect()->to('admin');
+        }
+
+        // Validasi Input
+        if (!$this->validate([
+            'penulis' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'judul' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'kategori' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'gambar' => [
+                'rules' => 'uploaded[gambar]|max_size[gambar,2048]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Upload gambar terlebih dahulu!',
+                    'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB',
+                    'is_image' => 'Yang anda pilih bukan gambar',
+                    'mime_in' => 'Yang anda pilih bukan gambar'
+                ]
+            ],
+            'isi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Tulisan gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/user/tulisan')->withInput();
+        }
+        // Ambil File gambarformal
+        $fotoUpload1 = $this->request->getFile('gambar');
+        $namaFotoUpload1 = $fotoUpload1->getRandomName();
+        $fotoUpload1->move('image', $namaFotoUpload1);
+
+        $this->informasiModel->save([
+            'penulis' => $this->request->getPost('penulis'),
+            'judul' => $this->request->getPost('judul'),
+            'isi' => $this->request->getPost('isi'),
+            'idkategori' => $this->request->getPost('kategori'),
+            'gambar' => $namaFotoUpload1,
+        ]);
+
+        session()->setFlashdata('pesan', 'Informasi baru sudah didaftarkan!');
+
+        return redirect()->to('/user/informasi');
     }
 
     // Kompetisi
