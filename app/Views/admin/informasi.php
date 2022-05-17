@@ -27,6 +27,7 @@
                 <div class="modal-body">
                     <form action="/admin/tambahinformasi" method="POST" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
+                        <input type="hidden" class="form-control" id="penulis" name="penulis" value="Admin">
                         <div class="row mb-3">
                             <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                             <div class="col-sm-10">
@@ -103,18 +104,19 @@
             <table id="datatablesKategoriAdmin">
                 <thead>
                     <tr>
+                        <th>Penulis</th>
                         <th>Judul</th>
                         <th>Kategori</th>
                         <th>Gambar</th>
                         <th>Isi</th>
                         <th>Waktu Dibuat</th>
-                        <th>Waktu Diubah</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($informasi as $i) : ?>
                         <tr>
+                            <td><?= $i['penulis']; ?></td>
                             <td><?= $i['judul']; ?></td>
                             <td><?= $i['namakategori']; ?></td>
                             <td>

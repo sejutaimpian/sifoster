@@ -7,8 +7,9 @@
     <div class="row">
         <div class="col-md-8 mb-3">
             <h1 class="mb-0"><?= $informasi[0]['judul']; ?></h1>
-            <small class="mb-2 bg-primary text-light px-2"><?= $informasi[0]['namakategori']; ?></small>
-            <img src="/image/<?= $informasi[0]['gambar']; ?>" alt="" class="img-fluid eris-mh mx-auto d-block">
+            <small class="bg-dark text-light px-2"><?= $informasi[0]['penulis']; ?></small>
+            <small class="bg-primary text-light px-2"><?= $informasi[0]['namakategori']; ?></small>
+            <img src="/image/<?= $informasi[0]['gambar']; ?>" alt="" class="img-fluid eris-mh mx-auto d-block mt-2">
             <div class="mt-3"><?= $informasi[0]['isi']; ?></div>
         </div>
 

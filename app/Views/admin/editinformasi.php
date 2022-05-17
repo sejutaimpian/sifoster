@@ -5,6 +5,7 @@
     <form action="/admin/updateinformasi/<?= $informasi[0]['id']; ?>" method="POST" enctype="multipart/form-data">
         <?= csrf_field(); ?>
         <input type="hidden" name="id" value="<?= $informasi[0]['id']; ?>">
+        <input type="hidden" id="penulis" name="penulis" value="Admin">
         <div class="row mb-3">
             <label for="judul" class="col-sm-2 col-form-label">Judul</label>
             <div class="col-sm-10">

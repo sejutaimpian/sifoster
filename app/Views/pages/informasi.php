@@ -12,6 +12,7 @@
                             <h5 class="mb-1 fw-bold"><?= $i['judul']; ?></h5>
                             <small><?= $i['created_at']; ?></small>
                         </div>
+                        <small class="bg-dark text-light px-2"><?= $i['penulis']; ?></small>
                         <small class="bg-primary text-light px-2"><?= $i['namakategori']; ?></small>
                         <div class="mb-0 description"><?= $i['isi']; ?></div>
                         <p class="mb-1">. . . .</p>

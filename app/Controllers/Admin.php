@@ -377,6 +377,12 @@ class Admin extends BaseController
 
         // Validasi Input
         if (!$this->validate([
+            'penulis' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
             'judul' => [
                 'rules' => 'required',
                 'errors' => [
@@ -416,6 +422,7 @@ class Admin extends BaseController
         $fotoUpload1->move('image', $namaFotoUpload1);
 
         $informasiModel->save([
+            'penulis' => $this->request->getPost('penulis'),
             'judul' => $this->request->getPost('judul'),
             'isi' => $this->request->getPost('isi'),
             'idkategori' => $this->request->getPost('kategori'),
@@ -474,6 +481,12 @@ class Admin extends BaseController
 
         // Validasi Input
         if (!$this->validate([
+            'penulis' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
             'judul' => [
                 'rules' => 'required',
                 'errors' => [
@@ -517,6 +530,7 @@ class Admin extends BaseController
 
         $informasiModel->save([
             'id' => $this->request->getPost('id'),
+            'penulis' => $this->request->getPost('penulis'),
             'judul' => $this->request->getPost('judul'),
             'isi' => $this->request->getPost('isi'),
             'idkategori' => $this->request->getPost('kategori'),

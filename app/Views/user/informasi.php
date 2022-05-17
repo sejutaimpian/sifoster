@@ -20,17 +20,18 @@
             <table id="datatablesKategoriAdmin">
                 <thead>
                     <tr>
+                        <th>Penulis</th>
                         <th>Judul</th>
                         <th>Kategori</th>
                         <th>Gambar</th>
                         <th>Isi</th>
                         <th>Waktu Dibuat</th>
-                        <th>Waktu Diubah</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($informasi as $i) : ?>
                         <tr>
+                            <td><?= $i['penulis']; ?></td>
                             <td><?= $i['judul']; ?></td>
                             <td><?= $i['namakategori']; ?></td>
                             <td>
@@ -38,7 +39,6 @@
                             </td>
                             <td><?= $i['isi']; ?></td>
                             <td><?= $i['created_at']; ?></td>
-                            <td><?= $i['updated_at']; ?></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>

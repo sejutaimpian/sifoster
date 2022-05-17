@@ -9,7 +9,7 @@ class InformasiModel extends Model
 {
     protected $table = 'informasi';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'isi', 'idkategori', 'gambar'];
+    protected $allowedFields = ['penulis', 'judul', 'isi', 'idkategori', 'gambar'];
 
     public function getJoinInformasiKategori($id)
     {
