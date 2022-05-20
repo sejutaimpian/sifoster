@@ -2,6 +2,7 @@
   --lineheight: 1.5rem;
   --size-avatar: 25px;
   scroll-behavior: smooth;
+  --bs-primary: #dc3545;
 }
 /* .form-label {
   background-color: lightblue;

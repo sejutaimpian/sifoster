@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\KlasifikasiModel;
+
 class Gabung extends BaseController
 {
     public function __construct()
@@ -9,10 +11,13 @@ class Gabung extends BaseController
     }
     public function index()
     {
+        $klasifikasiModel = new KlasifikasiModel();
+        $klasifikasi = $klasifikasiModel->findAll();
         $data = [
             'title' => 'Pendaftaran Peserta Didik Baru',
             'profile' => $this->profile,
-            'validation' => \Config\Services::validation()
+            'validation' => \Config\Services::validation(),
+            'klasifikasi' => $klasifikasi
         ];
         return view('pages/gabung', $data);
     }
@@ -227,7 +232,7 @@ class Gabung extends BaseController
             'alamatsekolah' => $this->request->getPost('alamatsekolah'),
             'email' => $this->request->getPost('email'),
             'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'klasifikasi' => $this->request->getPost('klasifikasi'),
+            'idklasifikasi' => $this->request->getPost('klasifikasi'),
             'fotoformal' => $namaFotoUpload1,
             'akte' => $namaFotoUpload2,
             'kartukeluarga' => $namaFotoUpload3,

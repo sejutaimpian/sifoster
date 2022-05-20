@@ -66,7 +66,9 @@
                             <td><?= $a['namasiswa']; ?></td>
                             <td><?= $a['nowhatsapp']; ?></td>
                             <td><?= $a['email']; ?></td>
-                            <td><?= $a['fotoformal']; ?></td>
+                            <td>
+                                <img src="/image/<?= $a['fotoformal']; ?>" alt="" class="eris-mh-20">
+                            </td>
                             <td><?php
                                 if ($a['is_active'] == 0) {
                                     echo "Belum Aktif";

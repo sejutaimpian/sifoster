@@ -111,7 +111,7 @@
                     <div class="row">
                         <div class="input-group mb-2">
                             <span class="input-group-text col-sm-4 bg-dark text-light">Klasifikasi</span>
-                            <span class="input-group-text col-sm-8 bg-white"><?= $akun['klasifikasi']; ?></span>
+                            <span class="input-group-text col-sm-8 bg-white"><?= $akun['idklasifikasi']; ?></span>
                         </div>
                     </div>
                 </div>

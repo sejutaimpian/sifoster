@@ -281,10 +281,9 @@
                                             <?php endif ?>
                                         <?php else : ?>
                                             <option value="">Pilih....</option>
-                                            <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
-                                            <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
-                                            <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
-                                            <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
+                                            <?php foreach ($klasifikasi as $k) : ?>
+                                                <option value="<?= $k['idklasifikasi']; ?>"><?= $k['namaklasifikasi']; ?></option>
+                                            <?php endforeach; ?>
                                         <?php endif ?>
                                     </select>
                                     <div class="invalid-feedback">
