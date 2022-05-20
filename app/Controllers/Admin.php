@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\AjaranModel;
 use App\Models\GabungModel;
 use App\Models\InformasiModel;
 use App\Models\KategoriModel;
+use App\Models\KlasifikasiModel;
 use App\Models\KompetisiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
@@ -646,6 +648,146 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data kategori berhasil diupdate!');
 
         return redirect()->to('/admin/kategori');
+    }
+
+    // Absensi
+    public function absensi()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $ajaranModel = new AjaranModel();
+        $klasifikasiModel = new KlasifikasiModel();
+        $ajaran = $ajaranModel->findAll();
+        $klasifikasi = $klasifikasiModel->findAll();
+        $data = [
+            'title' => 'Data Kompetisi',
+            'profile' => $this->profile,
+            'ajaran' => $ajaran,
+            'klasifikasi' => $klasifikasi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/absensi', $data);
+    }
+    public function tambahajaran()
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+
+        $ajaranModel = new AjaranModel();
+
+        // Validasi Input
+        if (!$this->validate([
+            'triwulan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'tahunajaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'klasifikasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data Ajaran gagal didaftarkan dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/absensi')->withInput();
+        }
+
+        $ajaranModel->save([
+            'triwulan' => $this->request->getPost('triwulan'),
+            'tahunajaran' => $this->request->getPost('tahunajaran'),
+            'idklasifikasi' => $this->request->getPost('klasifikasi'),
+        ]);
+
+        session()->setFlashdata('pesan', 'Data kategori baru sudah didaftarkan!');
+
+        return redirect()->to('/admin/absensi');
+    }
+    public function hapusajaran($idajaran)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $ajaranModel = new AjaranModel();
+        $ajaranModel->delete($idajaran);
+        session()->setFlashdata('pesan', 'Akun berhasil dihapus!');
+
+        return redirect()->to('/admin/absensi');
+    }
+    public function editajaran($idajaran)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $ajaranModel = new AjaranModel();
+        $klasifikasiModel = new KlasifikasiModel();
+        $ajaran = $ajaranModel->where('idajaran', $idajaran)->findAll();
+        $klasifikasi = $klasifikasiModel->findAll();
+        $data = [
+            'title' => 'Edit ajaran',
+            'profile' => $this->profile,
+            'ajaran' => $ajaran,
+            'klasifikasi' => $klasifikasi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/editajaran', $data);
+    }
+    public function updateajaran($idajaran)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $ajaranModel = new AjaranModel();
+        $ajaran = $ajaranModel->where('idajaran', $idajaran)->findAll();
+
+        // Validasi Input
+        if (!$this->validate([
+            'triwulan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'tahunajaran' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+            'klasifikasi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom {field} harus diisi!'
+                ]
+            ],
+        ])) {
+            // $validation =  \Config\Services::validation();
+            // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
+            session()->setFlashdata('peringatan', 'Data ajaran gagal diupdate dikarenakan ada penginputan yang tidak sesuai. silakan coba lagi!');
+            return redirect()->to('/admin/editajaran/' . $ajaran[0]['idajaran'])->withInput();
+        }
+
+        $ajaranModel->save([
+            'idajaran' => $this->request->getPost('idajaran'),
+            'triwulan' => $this->request->getPost('triwulan'),
+            'tahunajaran' => $this->request->getPost('tahunajaran'),
+            'idklasifikasi' => $this->request->getPost('klasifikasi')
+        ]);
+
+        session()->setFlashdata('pesan', 'Data ajaran berhasil diupdate!');
+
+        return redirect()->to('/admin/absensi');
     }
 
     // Kompetisi

@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <a class="nav-link" href="/admin/presensi">
+                            <a class="nav-link" href="/admin/absensi">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-hand-point-up"></i></div>
                                 Absensi
                             </a>

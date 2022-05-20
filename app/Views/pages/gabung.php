@@ -258,27 +258,9 @@
                                 <div class="col-sm-10">
                                     <select class="form-select <?= ($validation->hasError('klasifikasi')) ? 'is-invalid' : ''; ?>" id="klasifikasi" name="klasifikasi">
                                         <?php if (old('klasifikasi')) : ?>
-                                            <?php if (old('klasifikasi') == 'Dasar 1') : ?>
-                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
-                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
-                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
-                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
-                                            <?php elseif (old('klasifikasi') == 'Dasar 2') : ?>
-                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
-                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
-                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
-                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
-                                            <?php elseif (old('klasifikasi') == 'Menengah 1') : ?>
-                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
-                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
-                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
-                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
-                                            <?php else : ?>
-                                                <option value="Menengah 2">Menengah 2 (Usia 15-16 tahun)</option>
-                                                <option value="Dasar 1">Dasar 1 (Usia 6-10 tahun)</option>
-                                                <option value="Dasar 2">Dasar 2 (Usia 11-12 tahun)</option>
-                                                <option value="Menengah 1">Menengah 1 (Usia 13-14 tahun)</option>
-                                            <?php endif ?>
+                                            <?php foreach ($klasifikasi as $k) : ?>
+                                                <option <?= $k['idklasifikasi'] == old('klasifikasi') ? 'selected' : ''; ?> value="<?= $k['idklasifikasi']; ?>"><?= $k['namaklasifikasi']; ?></option>
+                                            <?php endforeach; ?>
                                         <?php else : ?>
                                             <option value="">Pilih....</option>
                                             <?php foreach ($klasifikasi as $k) : ?>

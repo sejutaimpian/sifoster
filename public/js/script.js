@@ -97,6 +97,12 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesKurikulumAdmin);
     }
 });
+window.addEventListener('DOMContentLoaded', event => {
+    const datatablesAjaranAdmin = document.getElementById('datatablesAjaranAdmin');
+    if (datatablesAjaranAdmin) {
+        new simpleDatatables.DataTable(datatablesAjaranAdmin);
+    }
+});
 
 // Active Nav Login
 const activePageLogin = location.href;
