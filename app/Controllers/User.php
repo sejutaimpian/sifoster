@@ -327,18 +327,6 @@ class User extends BaseController
                     'mime_in' => 'Yang anda pilih bukan gambar'
                 ]
             ],
-            'role' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
-            'is_active' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Kolom {field} harus diisi!'
-                ]
-            ],
         ])) {
             // $validation =  \Config\Services::validation();
             // return redirect()->to('/dashboard/create')->withInput()->with('validation', $validation);
@@ -359,8 +347,7 @@ class User extends BaseController
             'email' => $this->request->getPost('email'),
             'password' => ($this->request->getPost('password') == "") ? $password : password_hash($password, PASSWORD_DEFAULT),
             'fotoformal' => $fotoformal,
-            'role' => $this->request->getPost('role'),
-            'is_active' => $this->request->getPost('is_active')
+
         ]);
 
         session()->setFlashdata('pesan', 'Akun berhasil diupdate!');

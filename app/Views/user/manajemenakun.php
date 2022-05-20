@@ -25,8 +25,6 @@
                         <th>Nama Siswa</th>
                         <th>Email</th>
                         <th>Foto Formal</th>
-                        <th>Status</th>
-                        <th>Role</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -38,15 +36,6 @@
                             <td>
                                 <img src="/image/<?= $a['fotoformal']; ?>" alt="" class="eris-mh-20">
                             </td>
-                            <td><?php
-                                if ($a['is_active'] == 0) {
-                                    echo "Belum Aktif";
-                                } else {
-                                    echo "Aktif";
-                                }
-                                ?>
-                            </td>
-                            <td><?= $a['role']; ?></td>
                             <td>
                                 <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
                                     <a href="/user/editakun/<?= $a['id']; ?>" class="btn btn-warning">Edit</a>

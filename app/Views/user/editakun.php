@@ -60,40 +60,6 @@
                 </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <label for="role" class="col-sm-2 col-form-label">Role</label>
-            <div class="col-sm-10">
-                <select class="form-select <?= ($validation->hasError('role')) ? 'is-invalid' : ''; ?>" id="role" name="role">
-                    <?php if ($user[0]['role'] == 'admin') : ?>
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
-                    <?php else : ?>
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    <?php endif ?>
-                </select>
-                <div class="invalid-feedback">
-                    <?= $validation->getError('role'); ?>
-                </div>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="is_active" class="col-sm-2 col-form-label">Status</label>
-            <div class="col-sm-10">
-                <select class="form-select <?= ($validation->hasError('is_active')) ? 'is-invalid' : ''; ?>" id="is_active" name="is_active">
-                    <?php if ($user[0]['is_active'] == '0') : ?>
-                        <option value="0">Belum Aktif</option>
-                        <option value="1">Aktif</option>
-                    <?php else : ?>
-                        <option value="1">Aktif</option>
-                        <option value="0">Belum Aktif</option>
-                    <?php endif ?>
-                </select>
-                <div class="invalid-feedback">
-                    <?= $validation->getError('is_active'); ?>
-                </div>
-            </div>
-        </div>
         <div class="float-end mb-3">
             <a href="/user/manajemenakun" class="btn btn-outline-secondary">Batal</a>
             <button type="submit" class="btn btn-primary">Update</button>
