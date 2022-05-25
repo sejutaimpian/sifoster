@@ -32,7 +32,12 @@
                             <td><?= $a['nowhatsapp']; ?></td>
                             <td><?= $a['nowali']; ?></td>
                             <td><?= $a['email']; ?></td>
-                            <td><?= $a['idklasifikasi']; ?></td>
+                            <td>
+                                <?php foreach ($klasifikasi as $k) : ?>
+                                    <?php if ($k['idklasifikasi'] == $a['idklasifikasi']) : ?>
+                                        <?= $k['namaklasifikasi']; ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?></td>
                             <td>
                                 <img src="/image/<?= $a['fotoformal']; ?>" alt="" class="eris-mh-20">
                             </td>

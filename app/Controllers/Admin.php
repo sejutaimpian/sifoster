@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\AbsenModel;
 use App\Models\AjaranModel;
 use App\Models\GabungModel;
 use App\Models\InformasiModel;
@@ -48,10 +49,13 @@ class Admin extends BaseController
         }
         $gabungModel = new GabungModel();
         $anggota = $gabungModel->getAnggotaAdmin();
+        $klasifikasiModel = new KlasifikasiModel();
+        $klasifikasi = $klasifikasiModel->findAll();
         $data = [
             'title' => 'Data Anggota',
             'profile' => $this->profile,
-            'anggota' => $anggota
+            'anggota' => $anggota,
+            'klasifikasi' => $klasifikasi
         ];
         return view('admin/anggota', $data);
     }
@@ -788,6 +792,24 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data ajaran berhasil diupdate!');
 
         return redirect()->to('/admin/absensi');
+    }
+    public function absenklasifikasi($idajaran)
+    {
+        if (session()->get('role') != 'admin') {
+            return redirect()->to('user');
+        }
+        $ajaranModel = new AjaranModel();
+        $klasifikasiModel = new KlasifikasiModel();
+        $ajaran = $ajaranModel->where('idajaran', $idajaran)->findAll();
+        $klasifikasi = $klasifikasiModel->findAll();
+        $data = [
+            'title' => 'Absen',
+            'profile' => $this->profile,
+            'ajaran' => $ajaran,
+            'klasifikasi' => $klasifikasi,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('admin/absenklasifikasi', $data);
     }
 
     // Kompetisi

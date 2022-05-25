@@ -1,13 +1,9 @@
 <?= $this->extend("layout/template-admin"); ?>
-
+<?php  ?>
 <?= $this->section("content"); ?>
 <div class="container-fluid px-4 mt-3">
 
-    <?php
-
-    use PhpParser\Node\Stmt\Echo_;
-
-    if (session()->getFlashData('pesan')) : ?>
+    <?php if (session()->getFlashData('pesan')) : ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?= session()->getFlashdata('pesan'); ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -141,7 +137,7 @@
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?')">Hapus</button>
                                     </form>
                                     <a href="/admin/editajaran/<?= $a['idajaran']; ?>" class="btn btn-warning">Edit</a>
-                                    <a href="/admin/absenajaran/<?= $a['idajaran']; ?>" class="btn btn-info">Absen</a>
+                                    <a href="/admin/absenklasifikasi/<?= $a['idajaran']; ?>" class="btn btn-primary">Absen</a>
                                 </div>
                             </td>
                         </tr>

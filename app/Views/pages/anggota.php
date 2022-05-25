@@ -25,7 +25,13 @@
                             <td><?= $a['namasiswa']; ?></td>
                             <td><?= $a['jeniskelamin']; ?></td>
                             <td><?= $a['email']; ?></td>
-                            <td><?= $a['klasifikasi']; ?></td>
+                            <td>
+                                <?php foreach ($klasifikasi as $k) : ?>
+                                    <?php if ($k['idklasifikasi'] == $a['idklasifikasi']) : ?>
+                                        <?= $k['namaklasifikasi']; ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </td>
                             <td>
                                 <img src="/image/<?= $a['fotoformal']; ?>" alt="" class="eris-mh-20">
                             </td>

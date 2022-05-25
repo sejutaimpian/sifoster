@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\GabungModel;
 use App\Models\InformasiModel;
 use App\Models\KategoriModel;
+use App\Models\KlasifikasiModel;
 use App\Models\KompetisiModel;
 use App\Models\KurikulumModel;
 use App\Models\PelatihModel;
@@ -23,6 +24,7 @@ class User extends BaseController
         $this->kompetisiModel = new KompetisiModel();
         $this->prestasiModel = new PrestasiModel();
         $this->kategoriModel = new KategoriModel();
+        $this->klasifikasiModel = new KlasifikasiModel();
 
         $this->user = $this->userModel->where('id', session()->get('id'))->findAll();
     }
@@ -49,11 +51,13 @@ class User extends BaseController
             return redirect()->to('admin');
         }
         $anggota = $this->gabungModel->getAnggotaUser();
+        $klasifikasi = $this->klasifikasiModel->findAll();
         $data = [
             'title' => 'Data Anggota',
             'profile' => $this->profile,
             'anggota' => $anggota,
-            'user' => $this->user
+            'user' => $this->user,
+            'klasifikasi' => $klasifikasi
         ];
         return view('user/anggota', $data);
     }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\GabungModel;
+use App\Models\KlasifikasiModel;
 
 class Anggota extends BaseController
 {
@@ -13,10 +14,13 @@ class Anggota extends BaseController
     {
         $anggotaModel = new GabungModel();
         $anggota = $anggotaModel->getAnggotaUser();
+        $klasifikasiModel = new KlasifikasiModel();
+        $klasifikasi = $klasifikasiModel->findAll();
         $data = [
             'title' => 'Daftar Anggota',
             'profile' => $this->profile,
-            'anggota' => $anggota
+            'anggota' => $anggota,
+            'klasifikasi' => $klasifikasi
         ];
 
         return view('pages/anggota', $data);
