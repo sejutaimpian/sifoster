@@ -221,6 +221,12 @@ class User extends BaseController
         return view('user/prestasi', $data);
     }
 
+    // Keuangan
+    public function keuangan()
+    {
+        return view('errors/html/error_eris');
+    }
+
     // Lainnya
     public function profileorganisasi()
     {

@@ -671,7 +671,7 @@ class Admin extends BaseController
             'klasifikasi' => $klasifikasi,
             'validation' => \Config\Services::validation()
         ];
-        return view('admin/absensi', $data);
+        return view('errors/html/error_eris', $data);
     }
     public function tambahajaran()
     {
@@ -1114,6 +1114,12 @@ class Admin extends BaseController
         session()->setFlashdata('pesan', 'Data prestasi berhasil dihapus!');
 
         return redirect()->to('/admin/prestasi');
+    }
+
+    // Keuangan
+    public function keuangan()
+    {
+        return view('errors/html/error_eris');
     }
 
     // Pengaturan

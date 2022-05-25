@@ -90,18 +90,10 @@
                             </a>
                         </div>
                         <div class="">
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseKeuangan" aria-expanded="false" aria-controls="collapseKeuangan">
+                            <a class="nav-link" href="/user/keuangan">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-wallet"></i></div>
                                 Keuangan
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseKeuangan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/user/pemasukan">Pemasukan</a>
-                                    <a class="nav-link" href="/user/pengeluaran">Pengeluaran</a>
-                                    <a class="nav-link" href="/user/laporankeuangan">Laporan</a>
-                                </nav>
-                            </div>
                         </div>
                         <div class="">
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePengaturan" aria-expanded="false" aria-controls="collapsePengaturan">
