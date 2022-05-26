@@ -43,6 +43,7 @@ Teknologi yang digunakan untuk membangun aplikasi ini diantaranya:
 Fitur pada Aplikasi ini meliputi:
 
 1. Halaman Pengunjung
+
    - Home
    - Anggota
    - Pelatih
@@ -52,29 +53,76 @@ Fitur pada Aplikasi ini meliputi:
    - Prestasi
    - Gallery
    - Gabung / Daftar
+   - Login
+
 2. Halaman Dashboard Admin
+
+   - Dashboard
+   - Orang
+     - Anggota
+     - Pelatih
+   - Kurikulum
+   - Blog
+     - Informasi
+     - Kategori
+     - Tulisan Anggota
+   - Absensi
+   - Kompetisi
+   - Prestasi
+   - Keuangan
+   - Pengaturan
+     - Profile Organisasi
+     - Manajemen Akun
+   - Logout
+
 3. Halaman Dashboard Anggota / User
+
+   - Dashboard
+
+     - Orang
+     - Anggota
+     - Pelatih
+
+   - Kurikulum
+   - Blog
+
+     - Informasi
+     - Kategori
+     - Tulisan Anggota
+
+   - Absensi
+   - Kompetisi
+   - Prestasi
+   - Keuangan
+   - Pengaturan
+
+     - Profile Organisasi
+     - Manajemen Akun
+
+   - Logout
 
 <hr>
 
 ## Demo Aplikasi
 
-| URL      | Belum Tersedia |
-| -------- | -------------- |
-| username | -              |
-| password | -              |
+| URL      | Belum Tersedia  |
+| -------- | --------------- |
+| username | admin@gmial.com |
+| password | admin           |
 
 <hr>
 
 ## Instalasi
+
+1. Clone repository ini `git clone https://github.com/sejutaimpian/sifoster.git`
+2. Import `sifoster.sql` yang ada pada folder db
+3. Jalankan perintah `php spark serve` pada terminal untuk menjalankan aplikasi. pastikan lokasinya run tepat berada pada aplikasi dan pastikan juga untuk memiliki koneksi internet.
 
 ### Spesifikasi
 
 - PHP ^7.3
 - Codeigniter 4.x
 - Database MySQL atau MariaDB 5.x
-
-### Cara Install
 
 ### Login Admin
 
@@ -84,6 +132,8 @@ Password: -
 ```
 
 ### Automated Testing
+
+....
 
 <hr>
 
