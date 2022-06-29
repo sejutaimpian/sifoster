@@ -106,7 +106,7 @@ Fitur pada Aplikasi ini meliputi:
 ## Instalasi
 
 1. Clone repository ini `git clone https://github.com/sejutaimpian/sifoster.git`
-2. Import `sifoster.sql` yang ada pada folder db ke phpmyadmin
+2. Buat database dengan nama 'sifoster' lalu Import `sifoster.sql` yang ada pada folder db ke phpmyadmin
 3. Rename file env menjadi .env
 4. Jalankan perintah `php spark serve` pada terminal untuk menjalankan aplikasi. pastikan lokasinya run tepat berada pada aplikasi dan pastikan juga untuk memiliki koneksi internet.
 
