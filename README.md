@@ -6,7 +6,7 @@ Sistem informasi terpadu adalah gabungan dari beberapa sistem informasi. Objek y
 
 ## Status Repo
 
-`Masih Tahap Pengembangan`
+`Stabil dan tidak akan ada perkembangan selanjutnya`
 
 <hr>
 
@@ -18,7 +18,7 @@ Sistem informasi terpadu adalah gabungan dari beberapa sistem informasi. Objek y
 4. [Instalasi](#instalasi)
    - [Spesifikasi yang Dibutuhkan](#spesifikasi)
    - [Cara Install](#cara-install)
-   - [Login Admin](#cara-install)
+   - [Login Dashboard](#cara-install)
    - [Testing](#automated-testing)
 5. [Lisensi](#license)
 
@@ -116,7 +116,7 @@ Fitur pada Aplikasi ini meliputi:
 - Codeigniter 4.x
 - Database MySQL atau MariaDB 5.x
 
-### Login Admin
+### Login Dashboard
 
 ```
 ADMIN
