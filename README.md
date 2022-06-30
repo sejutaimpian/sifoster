@@ -7,6 +7,7 @@ Sistem informasi terpadu adalah gabungan dari beberapa sistem informasi. Objek y
 ## Status Repo
 
 `Stabil dan tidak akan ada perkembangan selanjutnya`
+harusnya ada menu absensi dan menu keuangan pada halaman dashboard admin maupun user. tapi dikarenakan projek ini dihentikan, maka aplikasinya hanya berhenti sampai sini tanpa ada fitur absensi dan keuangan.
 
 <hr>
 
