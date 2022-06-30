@@ -110,8 +110,9 @@ Fitur pada Aplikasi ini meliputi:
 1. Clone repository ini `git clone https://github.com/sejutaimpian/sifoster.git`
 2. Buat database dengan nama 'sifoster' lalu Import `sifoster.sql` yang ada pada folder db ke phpmyadmin
 3. Rename file env menjadi .env
-4. ketik perintah 'php composer update' pada terminal (harus sudah menginstall composer).
-5. Jalankan perintah `php spark serve` pada terminal untuk menjalankan aplikasi. pastikan lokasinya run tepat berada pada aplikasi dan pastikan juga untuk memiliki koneksi internet.
+4. ketik perintah 'composer install' pada terminal (harus sudah menginstall composer).
+5. run mysql (pada xampp biasanya)
+6. Jalankan perintah `php spark serve` pada terminal untuk menjalankan aplikasi. pastikan lokasinya run tepat berada pada aplikasi dan pastikan juga untuk memiliki koneksi internet.
 
 ### Spesifikasi
 
