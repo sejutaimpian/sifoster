@@ -37,6 +37,7 @@ Teknologi yang digunakan untuk membangun aplikasi ini diantaranya:
 6. [MariaDB / MySql](https://mariadb.org/)
 7. [Ckeditor 5](https://ckeditor.com/)
 8. [Composer](https://getcomposer.org/)
+9. [Git](https://git-scm.com/downloads)
 
 <hr>
 
@@ -107,7 +108,7 @@ Fitur pada Aplikasi ini meliputi:
 
 ## Instalasi
 
-1. Clone repository ini `git clone https://github.com/sejutaimpian/sifoster.git`
+1. Clone repository ini melalui terminal git `git clone https://github.com/sejutaimpian/sifoster.git` (pastikan sudah menginstall git)
 2. Buat database dengan nama 'sifoster' lalu Import `sifoster.sql` yang ada pada folder db ke phpmyadmin
 3. Rename file env menjadi .env
 4. ketik perintah 'composer install' pada terminal (harus sudah menginstall composer).
